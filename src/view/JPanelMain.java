@@ -18,7 +18,7 @@ public class JPanelMain extends JPanel {
 	
 	private JPanel jpanelHeader;
 	private JPanelLateral jpanelLateral;
-	private JPanel jpanelContent;
+	private JPanelContent jpanelContent;
 	private JButton jButtonMethodOne;
 	private JButton jButtonMethodTwo;
 	private JButton jButtonMethodThree;
@@ -27,7 +27,7 @@ public class JPanelMain extends JPanel {
 	public JPanelMain() {
 		super(new BorderLayout());
 		this.jpanelHeader = new JPanel(new GridLayout(1,4));
-		this.jpanelContent = new JPanel(new BorderLayout());
+		this.jpanelContent = new JPanelContent();
 		this.jpanelLateral = new JPanelLateral();
 		jButtonMethodOne = new JButton(Constants.METHOD_ONE);
 		jButtonMethodTwo = new JButton(Constants.METHOD_TWO);

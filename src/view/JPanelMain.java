@@ -73,6 +73,12 @@ public class JPanelMain extends JPanel {
 			}
 		});
 	}
+
+	
+	public void showMethod(String method) {
+		jpanelContent.changeMethodLContent(method);
+		
+	}
 	
 
 	

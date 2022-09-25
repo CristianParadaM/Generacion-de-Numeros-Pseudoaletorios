@@ -1,24 +1,37 @@
 package controller;
 
-import view.JFrameMain;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Controller {
-    
-    private JFrameMain view;
-    private static Controller controller = null;
-    
-    public static Controller getInstance() {
-    	if (controller == null) {
+import view.JFrameMain;
+import view.utils.Constants;
+
+public class Controller implements ActionListener {
+
+	private JFrameMain view;
+	private static Controller controller = null;
+
+	public static Controller getInstance() {
+		if (controller == null) {
 			controller = new Controller();
 		}
-    	return controller;
-    }
-    
-    public void initApp() {
-    	view = new JFrameMain();
-    }
-    
+		return controller;
+	}
+
+	public void initApp() {
+		view = new JFrameMain();
+	}
+
 	public static void main(String[] args) {
-        Controller.getInstance().initApp();
-    }
+		Controller.getInstance().initApp();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		switch (e.getActionCommand()) {
+		case Constants.COMMAND_GENERATE_METHOD_ONE:
+			view.showMethod(Constants.METHOD_ONE);
+			break;
+		}
+	}
 }

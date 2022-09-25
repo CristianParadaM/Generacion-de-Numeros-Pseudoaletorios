@@ -2,7 +2,11 @@ package view.utils;
 
 import java.awt.Color;
 
+import view.JFrameMain;
+
 public class Constants {
+	//COMMANDS
+	public static final String COMMAND_GENERATE_METHOD_ONE = "COMMAND_GENERATE_METHOD_ONE";
 	
 	//TEXT
 	public static final String METHOD_ONE = "Cuadrados Medios";
@@ -17,7 +21,7 @@ public class Constants {
 	public static final String AUTOFILL = "Autollenado";
 	public static final String RADIO_BUTTON_IZQ = "Por izquierda";
 	public static final String RADIO_BUTTON_DER = "Por derecha";
-	
+	public static final String NUMEROS_PSEUDO_ALEATORIOS_GENERADOS = "Numeros Pseudo-Aleatorios Generados";
 	//PLACEHOLDER
 	public static final String PLACEHOLDER_SEED = "Numero par - mayor a 3 digitos";
 	public static final String PLACEHOLDER_RANGE_MIN = "Digite el rango minimo";
@@ -25,11 +29,11 @@ public class Constants {
 	
 	//FONT
 	public static final String FONT_APP = "Calibri (Cuerpo)";
-	public static final int FONT_SIZE_APP_BUTTONS = 12;
-	public static final int FONT_SIZE_APP_TITLES = 25;
-	public static final int FONT_SIZE_APP_LABELS = 18;
-	public static final int FONT_SIZE_APP_PLACEHOLDER = 15;
-	
+	public static final int FONT_SIZE_APP_BUTTONS = 12 * JFrameMain.WIDTH_FRAME / 1920;
+	public static final int FONT_SIZE_APP_TITLES = 25 * JFrameMain.WIDTH_FRAME / 1920;
+	public static final int FONT_SIZE_APP_LABELS = 18 * JFrameMain.WIDTH_FRAME / 1920;
+	public static final int FONT_SIZE_APP_PLACEHOLDER = 15 * JFrameMain.WIDTH_FRAME / 1920;
+
 	//COLORS
 	public static final Color COLOR_BACKGROUND_GRADIENT_ONE = new Color(57,55,55);
 	public static final Color COLOR_BACKGROUND_GRADIENT_TWO = new Color(118,113,113);
@@ -37,4 +41,6 @@ public class Constants {
 	public static final Color COLOR_BUTTONS_METHODS = new Color(88,84,84);
 	public static final Color COLOR_BUTTONS_METHODS_HOVER = new Color(38,38,38);
 	public static final Color COLOR_BORDER = new Color(175,171,171);
+
+
 }

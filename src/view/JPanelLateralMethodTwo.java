@@ -6,10 +6,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -26,8 +24,8 @@ import view.utils.Constants;
 public class JPanelLateralMethodTwo extends JScrollPane {
 
 	private JPanel jPanelContainer;
-	private JButton jLabelAccordionM1;
-	private JButton jLabelAccordionM2;
+	private JButton jButtonAccordionM1;
+	private JButton jButtonAccordionM2;
 
 	// AC1
 	private JPanel jPanelContainerM1;
@@ -65,8 +63,8 @@ public class JPanelLateralMethodTwo extends JScrollPane {
 		this.jPanelContainer = new JPanel();
 		this.buttonGenerateM1 = new JButton(Constants.GENERATE);
 		this.buttonGenerateM2 = new JButton(Constants.GENERATE);
-		this.jLabelAccordionM1 = new JButton(Constants.CONGRUENCIAL_LINEAL);
-		this.jLabelAccordionM2 = new JButton(Constants.CONGRUENCIAL_MULTIPLICATIVO);
+		this.jButtonAccordionM1 = new JButton(Constants.CONGRUENCIAL_LINEAL);
+		this.jButtonAccordionM2 = new JButton(Constants.CONGRUENCIAL_MULTIPLICATIVO);
 		this.jPanelContainerM1 = new JPanel(new GridBagLayout());
 		this.jLabelTitleM1 = new JLabel(Constants.ENTRIES, JLabel.CENTER);
 		this.jLabelNumberKM1 = new JLabel(Constants.NUMBER_K);
@@ -101,10 +99,8 @@ public class JPanelLateralMethodTwo extends JScrollPane {
 		this.jPanelContainer.setOpaque(false);
 		this.jPanelContainerM1.setOpaque(false);
 		this.jPanelContainerM2.setOpaque(false);
-		this.jPanelContainer
-				.setPreferredSize(new Dimension(300 * JFrameMain.WIDTH_FRAME / 1920, 960));
-		configureLabelAccordion(jLabelAccordionM1);
-		configureLabelAccordion(jLabelAccordionM2);
+		configureButtonAccordion(jButtonAccordionM1, Constants.COMMAND_ACCORDION_CONGR_M1);
+		configureButtonAccordion(jButtonAccordionM2, Constants.COMMAND_ACCORDION_CONGR_M2);
 
 		configureLabel(jLabelTitleM1, Constants.FONT_SIZE_APP_TITLES, Font.BOLD);
 		configureLabel(jLabelNumberKM1, Constants.FONT_SIZE_APP_LABELS, Font.PLAIN);
@@ -135,6 +131,7 @@ public class JPanelLateralMethodTwo extends JScrollPane {
 
 		addItemsPanels();
 		addItems();
+		
 	}
 
 	private void addItemsPanels() {
@@ -233,22 +230,20 @@ public class JPanelLateralMethodTwo extends JScrollPane {
 	}
 
 	private void addItems() {
-		this.jPanelContainer.add(jLabelAccordionM1).setBounds(0, 35 * JFrameMain.HEIGHT_FRAME / 1080,
+		this.jPanelContainer.add(jButtonAccordionM1).setBounds(0, 35 * JFrameMain.HEIGHT_FRAME / 1080,
 				320 * JFrameMain.WIDTH_FRAME / 1920, 35 * JFrameMain.HEIGHT_FRAME / 1080);
-		this.jPanelContainer.add(jPanelContainerM1).setBounds(0, 70 * JFrameMain.HEIGHT_FRAME / 1080,
-				320 * JFrameMain.WIDTH_FRAME / 1920, 420 * JFrameMain.HEIGHT_FRAME / 1080);
-		this.jPanelContainer.add(jLabelAccordionM2).setBounds(0, 500 * JFrameMain.HEIGHT_FRAME / 1080,
+		this.jPanelContainer.add(jButtonAccordionM2).setBounds(0, 80 * JFrameMain.HEIGHT_FRAME / 1080,
 				320 * JFrameMain.WIDTH_FRAME / 1920, 35 * JFrameMain.HEIGHT_FRAME / 1080);
-		this.jPanelContainer.add(jPanelContainerM2).setBounds(0, 535 * JFrameMain.HEIGHT_FRAME / 1080,
-				320 * JFrameMain.WIDTH_FRAME / 1920, 420 * JFrameMain.HEIGHT_FRAME / 1080);
 	}
 
-	private void configureLabelAccordion(JButton jLabelAccordion) {
-		jLabelAccordion.setFont(new Font(Constants.FONT_APP, Font.PLAIN, Constants.FONT_SIZE_APP_PLACEHOLDER));
-		jLabelAccordion.setForeground(Color.WHITE);
-		jLabelAccordion.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
-		jLabelAccordion.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 0, Color.WHITE));
-		jLabelAccordion.setFocusPainted(false);
+	private void configureButtonAccordion(JButton jButtonAccordion, String command) {
+		jButtonAccordion.setFont(new Font(Constants.FONT_APP, Font.PLAIN, Constants.FONT_SIZE_APP_PLACEHOLDER));
+		jButtonAccordion.setForeground(Color.WHITE);
+		jButtonAccordion.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
+		jButtonAccordion.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 0, Color.WHITE));
+		jButtonAccordion.setFocusPainted(false);
+		jButtonAccordion.addActionListener(JFrameMain.getInstance());
+		jButtonAccordion.setActionCommand(command);
 	}
 
 	private void configureButton(JButton jButton, String actionCommand) {
@@ -262,7 +257,7 @@ public class JPanelLateralMethodTwo extends JScrollPane {
 		jButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				jButton.setBorder(new LineBorder(Color.BLUE));
+				jButton.setBorder(new LineBorder(Color.ORANGE));
 			}
 
 			@Override
@@ -293,5 +288,33 @@ public class JPanelLateralMethodTwo extends JScrollPane {
 		super.paintComponent(g);
 		g.setColor(new Color(220, 10, 10, 0));
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+	}
+
+	public void removeComponents() {
+		for (int i = 0; i < this.jPanelContainer.getComponents().length; i++) {
+			this.jPanelContainer.getComponent(i).setVisible(false);
+		}
+		this.jPanelContainer.removeAll();
+	}
+	
+	public void moveAccordion(int index) {
+		removeComponents();
+		jButtonAccordionM1.setVisible(true);
+		jButtonAccordionM2.setVisible(true);
+		this.jPanelContainer.add(jButtonAccordionM1).setBounds(0, 35 * JFrameMain.HEIGHT_FRAME / 1080,
+				320 * JFrameMain.WIDTH_FRAME / 1920, 35 * JFrameMain.HEIGHT_FRAME / 1080);
+		if (index == 0) {
+			this.jPanelContainer.add(jPanelContainerM1).setBounds(0, 70 * JFrameMain.HEIGHT_FRAME / 1080,
+					320 * JFrameMain.WIDTH_FRAME / 1920, 420 * JFrameMain.HEIGHT_FRAME / 1080);
+			this.jPanelContainer.add(jButtonAccordionM2).setBounds(0, 500 * JFrameMain.HEIGHT_FRAME / 1080,
+					320 * JFrameMain.WIDTH_FRAME / 1920, 35 * JFrameMain.HEIGHT_FRAME / 1080);
+			jPanelContainerM1.setVisible(true);
+		}else {
+			this.jPanelContainer.add(jButtonAccordionM2).setBounds(0, 80 * JFrameMain.HEIGHT_FRAME / 1080,
+					320 * JFrameMain.WIDTH_FRAME / 1920, 35 * JFrameMain.HEIGHT_FRAME / 1080);
+			this.jPanelContainer.add(jPanelContainerM2).setBounds(0, 115 * JFrameMain.HEIGHT_FRAME / 1080,
+					320 * JFrameMain.WIDTH_FRAME / 1920, 420 * JFrameMain.HEIGHT_FRAME / 1080);
+			jPanelContainerM2.setVisible(true);
+		}
 	}
 }

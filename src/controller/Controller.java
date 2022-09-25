@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import view.JFrameMain;
 import view.utils.Constants;
 
-public class Controller implements ActionListener{
-    
+public class Controller implements ActionListener {
+
 	private JFrameMain view;
 	private static Controller controller = null;
 
@@ -19,19 +19,18 @@ public class Controller implements ActionListener{
 	}
 
 	public void initApp() {
-		view = new JFrameMain();
+		view = JFrameMain.getInstance();
+		view.init();
 	}
 
 	public static void main(String[] args) {
-        Controller.getInstance().initApp();
-    }
+		Controller.getInstance().initApp();
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
-		case Constants.COMMAND_GENERATE_METHOD_ONE:
-			view.showMethod(Constants.METHOD_ONE);
-			break;
+			case Constants.COMMAND_GENERATE_METHOD_ONE -> view.showMethod(Constants.METHOD_ONE);
 		}
 	}
 }

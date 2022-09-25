@@ -1,6 +1,7 @@
 package view.utils;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -8,8 +9,6 @@ import javax.swing.JScrollPane;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.border.LineBorder;
-import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -21,7 +20,7 @@ import view.JFrameMain;
  * @author CRISTIAN DAVID PARADA MARTINEZ
  * @date 8/08/2022
  */
-public class JTableReports extends JScrollPane {
+public class JTableMethod extends JScrollPane {
 
 	private static final long serialVersionUID = 1L;
 	private JTable jTable;
@@ -29,12 +28,12 @@ public class JTableReports extends JScrollPane {
 	private String[] columnNames;
 
 	/**
-	 * Constructor de JTablePodium
+	 * Constructor de JTableReports
 	 * 
 	 * @param info
 	 * @param type
 	 */
-	public JTableReports(ArrayList<Object[]> info, String[] columnNames) {
+	public JTableMethod(ArrayList<Object[]> info, String[] columnNames) {
 		super();
 		this.infoTable = info;
 		this.columnNames = columnNames;
@@ -61,9 +60,20 @@ public class JTableReports extends JScrollPane {
 				setFont(new Font(Constants.FONT_APP, Font.PLAIN, Constants.FONT_SIZE_APP_LABELS));
 				setForeground(Color.WHITE);
 				setBackground(new Color(80, 78, 79));
-				setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Color.WHITE));
 				super.setValue(value);
 
+			}
+			
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused,
+					int row, int column) {
+				super.getTableCellRendererComponent(table, value, selected, focused, row, column);
+				if ((Integer)table.getValueAt(row, 0) % 2 == 0) {
+					this.setBackground(new Color(80,78,78));
+				} else {
+					this.setBackground(new Color(59,56,56));
+				}
+				return this;
 			}
 		};
 		cellRender.setHorizontalAlignment(JLabel.CENTER);
@@ -108,11 +118,11 @@ public class JTableReports extends JScrollPane {
 		};
 
 		jTable = new JTable(dataModel);
-		jTable.setBorder(BorderFactory.createMatteBorder(1, 1, 0, 1, Color.WHITE));
+		jTable.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 1, Color.WHITE));
 		jTable.getTableHeader().setFont(new Font(Constants.FONT_APP, Font.PLAIN, Constants.FONT_SIZE_APP_LABELS));
 		jTable.getTableHeader().setBorder(BorderFactory.createLineBorder(Color.WHITE));
-		jTable.getTableHeader().setPreferredSize(new Dimension(0, 40));
-		jTable.getTableHeader().setBackground(new Color(58, 57, 55));
+		jTable.getTableHeader().setPreferredSize(new Dimension(0, 40 * JFrameMain.HEIGHT_FRAME / 1080));
+		jTable.getTableHeader().setBackground(new Color(59,56,56));
 		jTable.getTableHeader().setForeground(Color.WHITE);
 
 		jTable.getTableHeader().setReorderingAllowed(false);
@@ -122,9 +132,12 @@ public class JTableReports extends JScrollPane {
 			tableColumn.setCellRenderer(cellRender);
 
 		}
+		
+		jTable.setShowGrid(false);
 
 		this.setViewportView(jTable);
 		this.getVerticalScrollBar().setPreferredSize(new Dimension(0, 0));
-		jTable.setRowHeight(42);
+		jTable.setRowHeight(42 * JFrameMain.HEIGHT_FRAME / 1080);
 	}
+
 }

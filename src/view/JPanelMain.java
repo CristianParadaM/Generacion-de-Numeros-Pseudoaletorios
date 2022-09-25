@@ -37,10 +37,47 @@ public class JPanelMain extends JPanel {
 	}
 
 	private void init() {
-		addPropertiesButtons(jButtonMethodOne);
-		addPropertiesButtons(jButtonMethodTwo);
-		addPropertiesButtons(jButtonMethodThree);
-		addPropertiesButtons(jButtonMethodFour);
+		addPropertiesButtons(jButtonMethodOne, Constants.COMMAND_SWITCH_METHOD_ONE);
+		addPropertiesButtons(jButtonMethodTwo, Constants.COMMAND_SWITCH_METHOD_TWO);
+		addPropertiesButtons(jButtonMethodThree, Constants.COMMAND_SWITCH_METHOD_THREE);
+		addPropertiesButtons(jButtonMethodFour, Constants.COMMAND_SWITCH_METHOD_FOUR);
+		
+		jButtonMethodOne.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
+				jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS);
+				jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS);
+				jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			}
+		});
+		jButtonMethodTwo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
+				jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS);
+				jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS);
+				jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			}
+		});
+		jButtonMethodThree.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
+				jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS);
+				jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS);
+				jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			}
+		});
+		jButtonMethodFour.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
+				jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS);
+				jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS);
+				jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			}
+		});
 		
 		this.jpanelHeader.add(jButtonMethodOne);
 		this.jpanelHeader.add(jButtonMethodTwo);
@@ -54,30 +91,39 @@ public class JPanelMain extends JPanel {
 		this.add(jpanelLateral, BorderLayout.WEST);
 	}
 	
-	private void addPropertiesButtons(JButton button) {
+	private void addPropertiesButtons(JButton button, String actionComand) {
 		button.setFont(new Font(Constants.FONT_APP, Font.PLAIN, Constants.FONT_SIZE_APP_BUTTONS));
 		button.setBackground(Constants.COLOR_BUTTONS_METHODS);
 		button.setForeground(Color.WHITE);
 		button.setBorder(new LineBorder(Constants.COLOR_BORDER));
 		button.setFocusPainted(false);
 		button.setPreferredSize(new Dimension(0,35));
+		button.addActionListener(JFrameMain.getInstance());
+		button.setActionCommand(actionComand);
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				button.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
+				button.setBorder(new LineBorder(Color.WHITE));
 			}
 			
 			@Override
 			public void mouseExited(MouseEvent e) {
-				button.setBackground(Constants.COLOR_BUTTONS_METHODS);
+				button.setBorder(new LineBorder(Constants.COLOR_BORDER));
 			}
 		});
 	}
 
 	
 	public void showMethod(String method) {
-		jpanelContent.changeMethodLContent(method);
-		
+		jpanelContent.changeMethodContent(method);
+	}
+
+	public void changeToMethod(String method) {
+		jpanelLateral.changeMethodLateral(method);;
+	}
+
+	public void moveAccordion(int index) {
+		jpanelLateral.moveAccordion(index);
 	}
 	
 

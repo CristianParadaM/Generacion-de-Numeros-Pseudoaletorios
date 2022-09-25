@@ -1,7 +1,12 @@
 package view;
 
-import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import view.utils.Constants;
 
@@ -9,21 +14,37 @@ public class JPanelContent extends JPanel {
 
 	private JPanelContentMethodOne jPanelContentMethodOne;
 
+	private JLabel jLabelImgLogo;
+	private JPanel jPanelContentDefault;
+	private GridBagConstraints gbc;
+
 	public JPanelContent() {
 		super(new GridLayout());
-		this.jPanelContentMethodOne = new JPanelContentMethodOne();
+		this.gbc = new GridBagConstraints();
+		this.jLabelImgLogo = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource(Constants.PATH_IMG_LOGO))
+				.getImage().getScaledInstance(900 * JFrameMain.WIDTH_FRAME / 1920, 400 * JFrameMain.HEIGHT_FRAME / 1080,
+						Image.SCALE_SMOOTH)));
+		this.jPanelContentDefault = new JPanel(new GridBagLayout());
 		init();
 	}
 
 	private void init() {
-		this.setBackground(Constants.COLOR_BACKGROUND_CONTENT);
+		this.jPanelContentDefault.setOpaque(false);
+		this.setOpaque(true);
+
+		gbc.fill = 1;
+		gbc.weightx = 1;
+
+		this.jPanelContentDefault.add(jLabelImgLogo, gbc);
+
+		changeMethodContent(".");
 	}
 
-	public void changeMethodLContent(String option) {
+	public void changeMethodContent(String option) {
 		removeComponents();
 		switch (option) {
 		case Constants.METHOD_ONE:
-			jPanelContentMethodOne.setVisible(true);
+			this.jPanelContentMethodOne = new JPanelContentMethodOne();
 			this.add(jPanelContentMethodOne);
 			break;
 //			case Constants.METHOD_TWO: 
@@ -38,6 +59,10 @@ public class JPanelContent extends JPanel {
 //				jPanelLateralMethodOne.setVisible(true);
 //				this.add(jPanelLateralMethodOne);
 //				break;
+		default:
+			jPanelContentDefault.setVisible(true);
+			this.add(jPanelContentDefault);
+			break;
 		}
 	}
 

@@ -26,7 +26,7 @@ public class JPanelLateral extends JPanel {
 	private void init() {
 		this.setPreferredSize(new Dimension(322 * JFrameMain.WIDTH_FRAME / 1920, 0));
 		this.setOpaque(false);
-		changeMethodLateral(Constants.METHOD_TWO);
+		changeMethodLateral(Constants.METHOD_ONE);
 	}
 	
 	public void changeMethodLateral(String option) {
@@ -58,6 +58,7 @@ public class JPanelLateral extends JPanel {
 		this.removeAll();
 	}
 
+	
 	@Override
 	public void paint(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;

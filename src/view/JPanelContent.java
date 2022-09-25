@@ -17,15 +17,14 @@ public class JPanelContent extends JPanel {
 
 	private void init() {
 		this.setBackground(Constants.COLOR_BACKGROUND_CONTENT);
-		changeMethodLateral(Constants.METHOD_ONE);
 	}
 
-	public void changeMethodLateral(String option) {
+	public void changeMethodLContent(String option) {
 		removeComponents();
 		switch (option) {
 		case Constants.METHOD_ONE:
 			jPanelContentMethodOne.setVisible(true);
-			this.add(jPanelContentMethodOne, BorderLayout.CENTER);
+			this.add(jPanelContentMethodOne);
 			break;
 //			case Constants.METHOD_TWO: 
 //				jPanelLateralMethodOne.setVisible(true);
@@ -48,4 +47,5 @@ public class JPanelContent extends JPanel {
 		}
 		this.removeAll();
 	}
+
 }

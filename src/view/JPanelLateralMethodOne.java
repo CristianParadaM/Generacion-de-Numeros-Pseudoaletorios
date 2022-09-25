@@ -17,29 +17,31 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import controller.Controller;
 import model.TextPrompt;
 import view.utils.Constants;
 
 public class JPanelLateralMethodOne extends JPanel {
-	
+
 	private JLabel jLabelTitle;
 	private JLabel jLabelSeed;
 	private JLabel jLabelRangeMin;
 	private JLabel jLabelRangeMax;
 	private JLabel jLabelAutoFill;
-	
+
 	private JTextField jTextFieldSeed;
 	private JTextField jTextFieldRangeMin;
 	private JTextField jTextFieldRangeMax;
-	
+
 	private JRadioButton jRadioButtonIz;
 	private JRadioButton jRadioButtonDer;
 	private ButtonGroup buttonGroup;
-	
+
 	private JButton jButtonGenerate;
 	private GridBagConstraints gbc;
-	
+
 	public JPanelLateralMethodOne() {
+		
 		super(new GridBagLayout());
 		this.jButtonGenerate = new JButton(Constants.GENERATE);
 		this.gbc = new GridBagConstraints();
@@ -59,6 +61,7 @@ public class JPanelLateralMethodOne extends JPanel {
 		init();
 	}
 
+	
 	private void init() {
 		this.setOpaque(false);
 		configureLabel(jLabelTitle, Constants.FONT_SIZE_APP_TITLES, Font.BOLD);
@@ -74,6 +77,8 @@ public class JPanelLateralMethodOne extends JPanel {
 		configureButton(jButtonGenerate);
 		jRadioButtonIz.setSelected(true);
 		addComponents();
+		jButtonGenerate.addActionListener(Controller.getInstance());
+		jButtonGenerate.setActionCommand(Constants.COMMAND_GENERATE_METHOD_ONE);
 	}
 
 	private void addComponents() {
@@ -87,9 +92,9 @@ public class JPanelLateralMethodOne extends JPanel {
 		gbc.insets.right = insets_width_sides;
 		gbc.insets.top = insets_width_top;
 		this.add(jLabelTitle, gbc);
-		gbc.gridy =1;
+		gbc.gridy = 1;
 		this.add(jLabelSeed, gbc);
-		gbc.gridy =2;
+		gbc.gridy = 2;
 		gbc.insets.top = 0;
 		this.add(jTextFieldSeed, gbc);
 		gbc.gridy = 3;
@@ -119,8 +124,8 @@ public class JPanelLateralMethodOne extends JPanel {
 		gbc.insets.right = insets_width_sides_button;
 		this.add(jButtonGenerate, gbc);
 		gbc.gridy = 11;
-		gbc.weighty= 1;
-		this.add(Box.createRigidArea(new Dimension(0,0)), gbc);
+		gbc.weighty = 1;
+		this.add(Box.createRigidArea(new Dimension(0, 0)), gbc);
 	}
 
 	private void configureButton(JButton jButton) {
@@ -132,16 +137,16 @@ public class JPanelLateralMethodOne extends JPanel {
 		jButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				jButton.setBorder(new LineBorder(Color.BLUE));
+				jButton.setBorder(new LineBorder(new Color(253, 124, 18)));
 			}
-			
+
 			@Override
 			public void mouseExited(MouseEvent e) {
 				jButton.setBorder(new LineBorder(Color.WHITE));
 			}
 		});
 	}
-	
+
 	private void configureRadioButton(JRadioButton jRadioButton) {
 		jRadioButton.setFont(new Font(Constants.FONT_APP, Font.PLAIN, Constants.FONT_SIZE_APP_PLACEHOLDER));
 		jRadioButton.setForeground(Color.WHITE);
@@ -159,7 +164,7 @@ public class JPanelLateralMethodOne extends JPanel {
 		jTextField.setBorder(new LineBorder(Color.WHITE));
 		jTextField.setOpaque(false);
 		jTextField.setForeground(Color.WHITE);
-		jTextField.setPreferredSize(new Dimension(0,30));
+		jTextField.setPreferredSize(new Dimension(0, 30 * JFrameMain.HEIGHT_FRAME / 1080));
 		TextPrompt textPrompt = new TextPrompt(placeholder, jTextField);
 		textPrompt.changeAlpha(0.35f);
 		textPrompt.changeStyle(Font.ITALIC);

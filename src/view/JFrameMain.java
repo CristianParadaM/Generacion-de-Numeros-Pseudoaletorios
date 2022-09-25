@@ -24,5 +24,13 @@ public class JFrameMain extends JFrame {
 		this.setVisible(true);
 	}
 
+
+	/**
+	 * @param methodOne
+	 */
+	public void showMethod(String method) {
+		jPanelMain.showMethod(method);		
+	}
+
 	
 }

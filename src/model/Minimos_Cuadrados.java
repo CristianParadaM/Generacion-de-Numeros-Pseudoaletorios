@@ -17,10 +17,9 @@ public class Minimos_Cuadrados {
 		this.max = max;
 		this.addLeft = addLeft;
 		table = new ArrayList<>();
-		generateNumbers();
 	}
 	
-	private void generateNumbers() {
+	public ArrayList<String[]> generateNumbers() {
 		int i = 0, x_i = seed, seed_lenght = (seed+"").length(), divisor = (int) Math.pow(10, seed_lenght);
 		if (addLeft) {
 			while (true) {
@@ -43,6 +42,7 @@ public class Minimos_Cuadrados {
 			}
 			table.remove(table.size()-1);
 		}
+		return table;
 	}
 
 	private int generateRow(int i, int x_i, int seed_lenght, int divisor, String[] row) {
@@ -73,10 +73,6 @@ public class Minimos_Cuadrados {
 			}
 		}
 		return false;
-	}
-	
-	public ArrayList<String[]> getTable() {
-		return table;
 	}
 	
 }

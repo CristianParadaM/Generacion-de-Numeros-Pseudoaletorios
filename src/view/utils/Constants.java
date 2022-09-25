@@ -4,6 +4,10 @@ import java.awt.Color;
 
 public class Constants {
 	
+	//COMMANDS
+	public static final String COMMAND_GENERATE_CONGR_M1 = "COMMAND_GENERATE_CONGR_M1";
+	public static final String COMMAND_GENERATE_CONGR_M2 = "COMMAND_GENERATE_CONGR_M2";
+	
 	//TEXT
 	public static final String METHOD_ONE = "Cuadrados Medios";
 	public static final String METHOD_TWO = "Congruenciales";
@@ -17,11 +21,20 @@ public class Constants {
 	public static final String AUTOFILL = "Autollenado";
 	public static final String RADIO_BUTTON_IZQ = "Por izquierda";
 	public static final String RADIO_BUTTON_DER = "Por derecha";
+	public static final String CONGRUENCIAL_MULTIPLICATIVO = "Congruencial Multiplicativo";
+	public static final String CONGRUENCIAL_LINEAL = "Congruencial Lineal";
+	public static final String NUMBER_G = "Numero g:";
+	public static final String NUMBER_C = "Numero c:";
+	public static final String NUMBER_K = "Numero k:";
+	public static final String NUMBER_T = "Numero T:";
 	
 	//PLACEHOLDER
 	public static final String PLACEHOLDER_SEED = "Numero par - mayor a 3 digitos";
 	public static final String PLACEHOLDER_RANGE_MIN = "Digite el rango minimo";
 	public static final String PLACEHOLDER_RANGE_MAX = "Digite el rango maximo";
+	public static final String PLACEHOLDER_NUMERO_G = "Numero entero mayor a k y c";
+	public static final String PLACEHOLDER_NUMERO_C = "Numero enterio positivo impar";
+	public static final String PLACEHOLDER_NUMERO_K = "Numero entero positivo";
 	
 	//FONT
 	public static final String FONT_APP = "Calibri (Cuerpo)";

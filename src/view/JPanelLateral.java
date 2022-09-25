@@ -14,17 +14,19 @@ import view.utils.Constants;
 public class JPanelLateral extends JPanel {
 
 	private JPanelLateralMethodOne jPanelLateralMethodOne;
+	private JPanelLateralMethodTwo jPanelLateralMethodTwo;
 	
 	public JPanelLateral() {
 		super(new GridLayout());
 		this.jPanelLateralMethodOne = new JPanelLateralMethodOne();
+		this.jPanelLateralMethodTwo = new JPanelLateralMethodTwo();
 		init();
 	}
 
 	private void init() {
 		this.setPreferredSize(new Dimension(322 * JFrameMain.WIDTH_FRAME / 1920, 0));
 		this.setOpaque(false);
-		changeMethodLateral(Constants.METHOD_ONE);
+		changeMethodLateral(Constants.METHOD_TWO);
 	}
 	
 	public void changeMethodLateral(String option) {
@@ -34,10 +36,10 @@ public class JPanelLateral extends JPanel {
 				jPanelLateralMethodOne.setVisible(true);
 				this.add(jPanelLateralMethodOne, BorderLayout.CENTER);
 				break;
-//			case Constants.METHOD_TWO: 
-//				jPanelLateralMethodOne.setVisible(true);
-//				this.add(jPanelLateralMethodOne);
-//				break;
+			case Constants.METHOD_TWO: 
+				jPanelLateralMethodTwo.setVisible(true);
+				this.add(jPanelLateralMethodTwo, BorderLayout.CENTER);
+				break;
 //			case Constants.METHOD_THREE: 
 //				jPanelLateralMethodOne.setVisible(true);
 //				this.add(jPanelLateralMethodOne);
@@ -67,8 +69,8 @@ public class JPanelLateral extends JPanel {
 		g2d.drawLine(getWidth(), 0, getWidth(), getHeight());
 		g2d.setStroke(new BasicStroke(1));
 		g2d.setColor(Color.WHITE);
-		g2d.drawLine(20 * JFrameMain.WIDTH_FRAME / 1920, 50 * JFrameMain.HEIGHT_FRAME / 1080,
-				getWidth() - (20 * JFrameMain.WIDTH_FRAME / 1920), 50 * JFrameMain.HEIGHT_FRAME / 1080);
+//		g2d.drawLine(20 * JFrameMain.WIDTH_FRAME / 1920, 50 * JFrameMain.HEIGHT_FRAME / 1080,
+//				getWidth() - (20 * JFrameMain.WIDTH_FRAME / 1920), 50 * JFrameMain.HEIGHT_FRAME / 1080);
 		super.paint(g);
 
 	}

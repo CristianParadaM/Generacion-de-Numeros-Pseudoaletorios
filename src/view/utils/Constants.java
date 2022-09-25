@@ -35,10 +35,19 @@ public class Constants {
 	public static final String NUMBER_G = "Numero g:";
 	public static final String NUMBER_C = "Numero c:";
 	public static final String NUMBER_K = "Numero k:";
-	public static final String NUMBER_T = "Numero T:";
+	public static final String NUMBER_T = "Numero t:";
 	public static final String NUMEROS_PSEUDO_ALEATORIOS_GENERADOS = "Numeros Pseudo-Aleatorios Generados";
 	public static final String MAIN_MENU = "Menu Principal";
 	public static final String CHOOSE_OPTION = "A continuacion elija cualquiera de las opciones que se le presentan arriba, que lo llevaran a cada uno de los diferentes metodos de generacion de numeros pseudoaleatorios :)";
+	
+	//ERRORS
+	public static final String ERROR = "Error";
+	public static final String ERROR_SEED = "El numero semilla debe ser par y mayor a 3 digitos";
+	public static final String ERROR_EMPTY_TEXT = "No puede haber campos vacios";
+	public static final String ERROR_MIN_MAX_I = "El minimo no puede ser igual al maximo";
+	public static final String ERROR_MIN_MAX = "El minimo no puede ser mayor al maximo";
+	public static final String ERROR_IMPAR = "El numero c debe ser impar";
+	public static final String ERROR_G = "El numero g debe ser mayor a k y c";
 
 	// PLACEHOLDER
 	public static final String PLACEHOLDER_SEED = "Numero par - mayor a 3 digitos";

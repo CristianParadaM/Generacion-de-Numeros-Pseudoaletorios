@@ -2,19 +2,24 @@ package view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Event;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
+import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
 
 import controller.Controller;
@@ -41,7 +46,7 @@ public class JPanelLateralMethodOne extends JPanel {
 	private GridBagConstraints gbc;
 
 	public JPanelLateralMethodOne() {
-		
+
 		super(new GridBagLayout());
 		this.jButtonGenerate = new JButton(Constants.GENERATE);
 		this.gbc = new GridBagConstraints();
@@ -50,9 +55,9 @@ public class JPanelLateralMethodOne extends JPanel {
 		this.jLabelRangeMin = new JLabel(Constants.RANGE_MIN);
 		this.jLabelRangeMax = new JLabel(Constants.RANGE_MAX);
 		this.jLabelAutoFill = new JLabel(Constants.AUTOFILL);
-		this.jTextFieldSeed = new JTextField();
-		this.jTextFieldRangeMin = new JTextField();
-		this.jTextFieldRangeMax = new JTextField();
+		this.jTextFieldSeed = new JTextField("");
+		this.jTextFieldRangeMin = new JTextField("");
+		this.jTextFieldRangeMax = new JTextField("");
 		this.jRadioButtonIz = new JRadioButton(Constants.RADIO_BUTTON_IZQ);
 		this.jRadioButtonDer = new JRadioButton(Constants.RADIO_BUTTON_DER);
 		this.buttonGroup = new ButtonGroup();
@@ -61,7 +66,6 @@ public class JPanelLateralMethodOne extends JPanel {
 		init();
 	}
 
-	
 	private void init() {
 		this.setOpaque(false);
 		configureLabel(jLabelTitle, Constants.FONT_SIZE_APP_TITLES, Font.BOLD);
@@ -79,6 +83,8 @@ public class JPanelLateralMethodOne extends JPanel {
 		addComponents();
 		jButtonGenerate.addActionListener(Controller.getInstance());
 		jButtonGenerate.setActionCommand(Constants.COMMAND_GENERATE_METHOD_ONE);
+		jRadioButtonIz.setMnemonic('i');
+		jRadioButtonDer.setMnemonic('d');
 	}
 
 	private void addComponents() {
@@ -159,6 +165,7 @@ public class JPanelLateralMethodOne extends JPanel {
 		jLabel.setForeground(Color.WHITE);
 	}
 
+	@SuppressWarnings("deprecation")
 	private void configureTextField(JTextField jTextField, String placeholder) {
 		jTextField.setFont(new Font(Constants.FONT_APP, Font.PLAIN, Constants.FONT_SIZE_APP_PLACEHOLDER));
 		jTextField.setBorder(new LineBorder(Color.WHITE));
@@ -168,6 +175,60 @@ public class JPanelLateralMethodOne extends JPanel {
 		TextPrompt textPrompt = new TextPrompt(placeholder, jTextField);
 		textPrompt.changeAlpha(0.35f);
 		textPrompt.changeStyle(Font.ITALIC);
+		InputMap map2 = jTextField.getInputMap(JTextField.WHEN_FOCUSED);
+	    map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+		jTextField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if ((int)e.getKeyChar() != 8 && (!Character.isDigit(e.getKeyChar()) || jTextField.getText().length() > 7)) {
+					e.consume();
+					return;
+				}
+			}
+		});
+	}
+
+	public String getSeed() {
+		return jTextFieldSeed.getText();
+	}
+
+	public String getMin() {
+		return jTextFieldRangeMin.getText();
+	}
+
+	public String getMax() {
+		return jTextFieldRangeMax.getText();
+	}
+
+	public boolean getFill() {
+		return buttonGroup.getSelection().getMnemonic() == 'i';
+	}
+
+	public void highlight(int index, int option) {
+		switch (index) {
+		case 0:
+			if (option == 0) {
+				jTextFieldSeed.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			} else {
+				jTextFieldSeed.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+		case 1:
+			if (option == 0) {
+				jTextFieldRangeMin.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			} else {
+				jTextFieldRangeMin.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+		case 2:
+			if (option == 0) {
+				jTextFieldRangeMax.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			} else {
+				jTextFieldRangeMax.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+
+		}
 	}
 
 }

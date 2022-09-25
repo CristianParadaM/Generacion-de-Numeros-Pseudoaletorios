@@ -2,19 +2,24 @@ package view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Event;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
 
 import controller.Controller;
@@ -281,6 +286,17 @@ public class JPanelLateralMethodTwo extends JScrollPane {
 		TextPrompt textPrompt = new TextPrompt(placeholder, jTextField);
 		textPrompt.changeAlpha(0.35f);
 		textPrompt.changeStyle(Font.ITALIC);
+		InputMap map2 = jTextField.getInputMap(JTextField.WHEN_FOCUSED);
+	    map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+		jTextField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if ((int)e.getKeyChar() != 8 && (!Character.isDigit(e.getKeyChar()) || jTextField.getText().length() > 7)) {
+					e.consume();
+					return;
+				}
+			}
+		});
 	}
 
 	@Override
@@ -315,6 +331,115 @@ public class JPanelLateralMethodTwo extends JScrollPane {
 			this.jPanelContainer.add(jPanelContainerM2).setBounds(0, 115 * JFrameMain.HEIGHT_FRAME / 1080,
 					320 * JFrameMain.WIDTH_FRAME / 1920, 420 * JFrameMain.HEIGHT_FRAME / 1080);
 			jPanelContainerM2.setVisible(true);
+		}
+	}
+	
+	public String getKM1() {
+		return jTextFieldNumberKM1.getText();
+	}
+
+	public String getCM1() {
+		return jTextFieldNumberCM1.getText();
+	}
+
+	public String getGM1() {
+		return jTextFieldNumberGM1.getText();
+	}
+
+	public String getMinM2M1() {
+		return jTextFieldRangeMinM1.getText();
+	}
+
+	public String getMaxM2M1() {
+		return jTextFieldRangeMaxM1.getText();
+	}
+
+	public String getTM2() {
+		return jTextFieldNumberTM2.getText();
+	}
+
+	public String getGM2() {
+		return jTextFieldNumberGM2.getText();
+	}
+
+	public String getMinM2M2() {
+		return jTextFieldRangeMinM2.getText();
+	}
+
+	public String getMaxM2M2() {
+		return jTextFieldRangeMaxM2.getText();
+	}
+
+	public void highlightM2M1(int index, int option) {
+		switch (index) {
+		case 0:
+			if (option == 0) {
+				jTextFieldNumberKM1.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			}else {
+				jTextFieldNumberKM1.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+		case 1:
+			if (option == 0) {
+				jTextFieldNumberCM1.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			}else {
+				jTextFieldNumberCM1.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+		case 2:
+			if (option == 0) {
+				jTextFieldNumberGM1.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			}else {
+				jTextFieldNumberGM1.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+		case 3:
+			if (option == 0) {
+				jTextFieldRangeMinM1.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			}else {
+				jTextFieldRangeMinM1.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+		case 4:
+			if (option == 0) {
+				jTextFieldRangeMaxM1.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			}else {
+				jTextFieldRangeMaxM1.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+		}
+	}
+	
+	public void highlightM2M2(int index, int option) {
+		switch (index) {
+		case 0:
+			if (option == 0) {
+				jTextFieldNumberTM2.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			}else {
+				jTextFieldNumberTM2.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+		case 1:
+			if (option == 0) {
+				jTextFieldNumberGM2.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			}else {
+				jTextFieldNumberGM2.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+		case 2:
+			if (option == 0) {
+				jTextFieldRangeMinM2.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			}else {
+				jTextFieldRangeMinM2.setBorder(new LineBorder(Color.RED));
+			}
+			break;
+		case 3:
+			if (option == 0) {
+				jTextFieldRangeMaxM2.setBorder(new LineBorder(Constants.COLOR_BORDER));
+			}else {
+				jTextFieldRangeMaxM2.setBorder(new LineBorder(Color.RED));
+			}
+			break;
 		}
 	}
 }

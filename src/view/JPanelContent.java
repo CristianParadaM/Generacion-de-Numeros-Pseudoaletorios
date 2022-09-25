@@ -4,6 +4,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -22,7 +23,7 @@ public class JPanelContent extends JPanel {
 		super(new GridLayout());
 		this.gbc = new GridBagConstraints();
 		this.jLabelImgLogo = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource(Constants.PATH_IMG_LOGO))
-				.getImage().getScaledInstance(900 * JFrameMain.WIDTH_FRAME / 1920, 400 * JFrameMain.HEIGHT_FRAME / 1080,
+				.getImage().getScaledInstance(900 * JFrameMain.WIDTH_FRAME / 1920, 300 * JFrameMain.HEIGHT_FRAME / 1080,
 						Image.SCALE_SMOOTH)));
 		this.jPanelContentDefault = new JPanel(new GridBagLayout());
 		init();
@@ -37,14 +38,14 @@ public class JPanelContent extends JPanel {
 
 		this.jPanelContentDefault.add(jLabelImgLogo, gbc);
 
-		changeMethodContent(".");
+		changeMethodContent(".",null,null);
 	}
 
-	public void changeMethodContent(String option) {
+	public void changeMethodContent(String option, ArrayList<Object[]> info, String[] columnNames) {
 		removeComponents();
 		switch (option) {
 		case Constants.METHOD_ONE:
-			this.jPanelContentMethodOne = new JPanelContentMethodOne();
+			this.jPanelContentMethodOne = new JPanelContentMethodOne(info, columnNames);
 			this.add(jPanelContentMethodOne);
 			break;
 //			case Constants.METHOD_TWO: 

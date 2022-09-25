@@ -20,27 +20,12 @@ public class JPanelContentMethodOne extends JPanel {
 
 	private JLabel jLabelTitle;
 	private JTableMethod jTableReports;
-	private ArrayList<Object[]> info;
-	private String[] columNames;
 	private GridBagConstraints gbc;
 
-	public JPanelContentMethodOne() {
+	public JPanelContentMethodOne(ArrayList<Object[]> info, String[] columnNames) {
 		super(new GridBagLayout());
-		gbc = new GridBagConstraints();
-		ArrayList<Object[]> info = new ArrayList<>();
-		info.add(new Object[] { 0, 2, 3, 4, 5, 6, 7 });
-		info.add(new Object[] { 1, 2, 3, 4, 5, 6, 7 });
-		info.add(new Object[] { 2, 2, 3, 4, 5, 6, 7 });
-		info.add(new Object[] { 3, 2, 3, 4, 5, 6, 7 });
-		info.add(new Object[] { 4, 2, 3, 4, 5, 6, 7 });
-		info.add(new Object[] { 5, 2, 3, 4, 5, 6, 7 });
-		info.add(new Object[] { 6, 2, 3, 4, 5, 6, 7 });
-		info.add(new Object[] { 7, 2, 3, 4, 5, 6, 7 });
-		info.add(new Object[] { 8, 2, 3, 4, 5, 6, 7 });
-		info.add(new Object[] { 9, 2, 3, 4, 5, 6, 7 });
-		info.add(new Object[] { 10, 2, 3, 4, 5, 6, 7 });
-		String[] columNames = { "i", "Xi", "Xi^2", "Dig.", "Extraccion", "Ri", "Ni" };
-		this.jTableReports = new JTableMethod(info, columNames);
+		this.gbc = new GridBagConstraints();
+		this.jTableReports = new JTableMethod(info, columnNames);
 		this.jLabelTitle = new JLabel(Constants.NUMEROS_PSEUDO_ALEATORIOS_GENERADOS, JLabel.CENTER);
 		init();
 	}

@@ -4,8 +4,10 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import view.utils.Constants;
 
@@ -40,8 +42,8 @@ public class JFrameMain extends JFrame implements ActionListener {
 	/**
 	 * @param methodOne
 	 */
-	public void showMethod(String method) {
-		jPanelMain.showMethod(method);
+	public void showMethod(String method, ArrayList<Object[]> info, String[] columnNames) {
+		jPanelMain.showMethod(method, info, columnNames);
 	}
 
 	@Override
@@ -54,6 +56,73 @@ public class JFrameMain extends JFrame implements ActionListener {
 		case Constants.COMMAND_ACCORDION_CONGR_M1 -> jPanelMain.moveAccordion(0);
 		case Constants.COMMAND_ACCORDION_CONGR_M2 -> jPanelMain.moveAccordion(1);
 		}
+	}
+
+	public String getSeed() {
+		return jPanelMain.getSeed();
+	}
+
+	public String getMinM1() {
+		return jPanelMain.getMinM1();
+	}
+
+	public String getMaxM1() {
+		return jPanelMain.getMaxM1();
+	}
+
+	public boolean getFill() {
+		return jPanelMain.getFill();
+	}
+
+	public void alert(String message, String title, int type) {
+		JOptionPane.showMessageDialog(this, message, title, type);
+	}
+
+	public void highlightM1(int index,int option) {
+		jPanelMain.highlightM1(index ,option);
+	}
+
+	public String getKM1() {
+		return jPanelMain.getKM1();
+	}
+
+	public String getCM1() {
+		return jPanelMain.getCM1();
+	}
+
+	public String getGM1() {
+		return jPanelMain.getGM1();
+	}
+
+	public String getMinM2M1() {
+		return jPanelMain.getMinM2M1();
+	}
+
+	public String getMaxM2M1() {
+		return jPanelMain.getMaxM2M1();
+	}
+
+	public String getTM2() {
+		return jPanelMain.getTM2();
+	}
+
+	public String getGM2() {
+		return jPanelMain.getGM2();
+	}
+
+	public String getMinM2M2() {
+		return jPanelMain.getMinM2M2();
+	}
+
+	public String getMaxM2M2() {
+		return jPanelMain.getMaxM2M2();
+	}
+
+	public void highlightM2M1(int index, int option) {
+		jPanelMain.highlightM2M1( index,  option);
+	}
+	public void highlightM2M2(int index, int option) {
+		jPanelMain.highlightM2M2( index,  option);
 	}
 	
 }

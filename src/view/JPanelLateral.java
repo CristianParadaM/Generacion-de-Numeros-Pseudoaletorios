@@ -126,4 +126,67 @@ public class JPanelLateral extends JPanel {
 	public void moveAccordion(int index) {
 		jPanelLateralMethodTwo.moveAccordion(index);
 	}
+
+	public String getSeed() {
+		return jPanelLateralMethodOne.getSeed();
+	}
+
+	public String getMinM1() {
+		return jPanelLateralMethodOne.getMin();
+	}
+
+	public String getMaxM1() {
+		return jPanelLateralMethodOne.getMax();
+	}
+
+	public boolean getFill() {
+		return jPanelLateralMethodOne.getFill();
+	}
+
+	public void highlightM1(int index, int option) {
+		jPanelLateralMethodOne.highlight(index, option);
+	}
+	
+	public String getKM1() {
+		return jPanelLateralMethodTwo.getKM1();
+	}
+
+	public String getCM1() {
+		return jPanelLateralMethodTwo.getCM1();
+	}
+
+	public String getGM1() {
+		return jPanelLateralMethodTwo.getGM1();
+	}
+
+	public String getMinM2M1() {
+		return jPanelLateralMethodTwo.getMinM2M1();
+	}
+
+	public String getMaxM2M1() {
+		return jPanelLateralMethodTwo.getMaxM2M1();
+	}
+
+	public String getTM2() {
+		return jPanelLateralMethodTwo.getTM2();
+	}
+
+	public String getGM2() {
+		return jPanelLateralMethodTwo.getGM2();
+	}
+
+	public String getMinM2M2() {
+		return jPanelLateralMethodTwo.getMinM2M2();
+	}
+
+	public String getMaxM2M2() {
+		return jPanelLateralMethodTwo.getMaxM2M2();
+	}
+
+	public void highlightM2M1(int index, int option) {
+		jPanelLateralMethodTwo.highlightM2M1( index,  option);
+	}
+	public void highlightM2M2(int index, int option) {
+		jPanelLateralMethodTwo.highlightM2M2( index,  option);
+	}
 }

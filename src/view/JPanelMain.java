@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -114,8 +115,8 @@ public class JPanelMain extends JPanel {
 	}
 
 	
-	public void showMethod(String method) {
-		jpanelContent.changeMethodContent(method);
+	public void showMethod(String method, ArrayList<Object[]> info, String[] columnNames) {
+		jpanelContent.changeMethodContent(method, info, columnNames);
 	}
 
 	public void changeToMethod(String method) {
@@ -125,7 +126,68 @@ public class JPanelMain extends JPanel {
 	public void moveAccordion(int index) {
 		jpanelLateral.moveAccordion(index);
 	}
-	
 
+	public String getSeed() {
+		return jpanelLateral.getSeed();
+	}
+
+	public String getMinM1() {
+		return jpanelLateral.getMinM1();
+	}
+
+	public String getMaxM1() {
+		return jpanelLateral.getMaxM1();
+	}
+
+	public boolean getFill() {
+		return jpanelLateral.getFill();
+	}
+
+	public void highlightM1(int index, int option) {
+		jpanelLateral.highlightM1(index, option);
+	}
+	
+	public String getKM1() {
+		return jpanelLateral.getKM1();
+	}
+
+	public String getCM1() {
+		return jpanelLateral.getCM1();
+	}
+
+	public String getGM1() {
+		return jpanelLateral.getGM1();
+	}
+
+	public String getMinM2M1() {
+		return jpanelLateral.getMinM2M1();
+	}
+
+	public String getMaxM2M1() {
+		return jpanelLateral.getMaxM2M1();
+	}
+
+	public String getTM2() {
+		return jpanelLateral.getTM2();
+	}
+
+	public String getGM2() {
+		return jpanelLateral.getGM2();
+	}
+
+	public String getMinM2M2() {
+		return jpanelLateral.getMinM2M2();
+	}
+
+	public String getMaxM2M2() {
+		return jpanelLateral.getMaxM2M2();
+	}
+
+	public void highlightM2M1(int index, int option) {
+		jpanelLateral.highlightM2M1( index,  option);
+	}
+	public void highlightM2M2(int index, int option) {
+		jpanelLateral.highlightM2M2( index,  option);
+	}
 	
 }

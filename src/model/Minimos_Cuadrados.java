@@ -6,15 +6,11 @@ import java.util.ArrayList;
 
 public class Minimos_Cuadrados {
 	private int seed;
-	private int min;
-	private int max;
 	private boolean addLeft;
 	private ArrayList<String[]> table;
 	
-	public Minimos_Cuadrados(int seed, int min, int max, boolean addLeft) {
+	public Minimos_Cuadrados(int seed, boolean addLeft) {
 		this.seed = seed;
-		this.min = min;
-		this.max = max;
 		this.addLeft = addLeft;
 		table = new ArrayList<>();
 	}
@@ -23,7 +19,7 @@ public class Minimos_Cuadrados {
 		int i = 0, x_i = seed, seed_lenght = (seed+"").length(), divisor = (int) Math.pow(10, seed_lenght);
 		if (addLeft) {
 			while (true) {
-				String row[] = new String[7];
+				String row[] = new String[6];
 				i = generateRow(i, x_i, seed_lenght, divisor, row);
 				if (isRepeated(row[5])) {
 					break;
@@ -60,7 +56,6 @@ public class Minimos_Cuadrados {
 		row[2] = pow;
 		row[4] = pow.substring(seed_lenght/2, (seed_lenght/2)+seed_lenght);
 		row[5] = (new BigDecimal(String.valueOf(Double.parseDouble(row[4])/divisor)).setScale(5, RoundingMode.FLOOR))+"";
-		row[6] = (new BigDecimal(String.valueOf(min + (max-min)*Double.parseDouble(row[5]))).setScale(5, RoundingMode.FLOOR))+"";
 		return i;
 	}
 	
@@ -73,6 +68,15 @@ public class Minimos_Cuadrados {
 			}
 		}
 		return false;
+	}
+	
+	public double[] getRi() {
+		ArrayList<String[]> table = generateNumbers();
+		double[] numbers = new double[table.size()];
+		for (int i = 0; i < numbers.length; i++) {
+			numbers[i] = Double.parseDouble(table.get(i)[5]);
+		}
+		return numbers;
 	}
 	
 }

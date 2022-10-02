@@ -68,7 +68,7 @@ public class JTableMethod extends JScrollPane {
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused,
 					int row, int column) {
 				super.getTableCellRendererComponent(table, value, selected, focused, row, column);
-				if ((Integer)table.getValueAt(row, 0) % 2 == 0) {
+				if (row % 2 == 0) {
 					this.setBackground(new Color(80,78,78));
 				} else {
 					this.setBackground(new Color(59,56,56));

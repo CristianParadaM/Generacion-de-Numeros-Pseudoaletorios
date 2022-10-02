@@ -21,6 +21,8 @@ public class JPanelLateral extends JPanel {
 
 	private JPanelLateralMethodOne jPanelLateralMethodOne;
 	private JPanelLateralMethodTwo jPanelLateralMethodTwo;
+	private JPanelLateralMethodThree jPanelLateralMethodThree;
+	private JPanelLateralMethodFour jPanelLateralMethodFour;
 
 	private JPanel jPanellateralDefault;
 	private GridBagConstraints gbc;
@@ -37,8 +39,6 @@ public class JPanelLateral extends JPanel {
 		this.jLabelChooseOption = new JLabel(
 				"<html><p style='text-align: justify;'>" + Constants.CHOOSE_OPTION + "</p></html>");
 		this.jPanellateralDefault = new JPanel(new GridBagLayout());
-		this.jPanelLateralMethodOne = new JPanelLateralMethodOne();
-		this.jPanelLateralMethodTwo = new JPanelLateralMethodTwo();
 		init();
 	}
 
@@ -49,9 +49,9 @@ public class JPanelLateral extends JPanel {
 		configureLabel(jLabelMainMenu, Constants.FONT_SIZE_APP_TITLES, Font.BOLD);
 		configureLabel(jLabelChooseOption, Constants.FONT_SIZE_APP_LABELS, Font.PLAIN);
 		configureLabel(jLabelVersion, Constants.FONT_SIZE_APP_PLACEHOLDER, Font.ITALIC);
-		
-		gbc.fill =1;
-		gbc.weightx =1;
+
+		gbc.fill = 1;
+		gbc.weightx = 1;
 		gbc.insets.top = 5;
 		gbc.insets.left = 20;
 		gbc.insets.right = 20;
@@ -61,38 +61,42 @@ public class JPanelLateral extends JPanel {
 		this.jPanellateralDefault.add(jLabelChooseOption, gbc);
 		gbc.gridy = 2;
 		gbc.weighty = 1;
-		this.jPanellateralDefault.add(Box.createRigidArea(new Dimension(0,0)), gbc);
+		this.jPanellateralDefault.add(Box.createRigidArea(new Dimension(0, 0)), gbc);
 		gbc.weighty = 0;
 		gbc.gridy = 3;
 		gbc.insets.bottom = 20;
 		this.jPanellateralDefault.add(jLabelVersion, gbc);
-		changeMethodLateral(".");
+		changeMethodLateral(".",null);
 	}
-	
+
 	private void configureLabel(JLabel jLabel, int fontSize, int style) {
 		jLabel.setFont(new Font(Constants.FONT_APP, style, fontSize));
 		jLabel.setForeground(Color.WHITE);
 	}
 
-	public void changeMethodLateral(String option) {
+	public void changeMethodLateral(String option, String[] commands) {
 		removeComponents();
 		switch (option) {
 		case Constants.METHOD_ONE:
-			jPanelLateralMethodOne.setVisible(true);
+			this.jPanelLateralMethodOne = new JPanelLateralMethodOne(commands[0]);
 			this.add(jPanelLateralMethodOne, BorderLayout.CENTER);
+			jPanelLateralMethodOne.updateUI();
 			break;
 		case Constants.METHOD_TWO:
-			jPanelLateralMethodTwo.setVisible(true);
+			jPanelLateralMethodTwo = new JPanelLateralMethodTwo(commands[0], commands[1], commands[2], commands[3]);
 			this.add(jPanelLateralMethodTwo, BorderLayout.CENTER);
+			jPanelLateralMethodTwo.updateUI();
 			break;
-//			case Constants.METHOD_THREE: 
-//				jPanelLateralMethodOne.setVisible(true);
-//				this.add(jPanelLateralMethodOne);
-//				break;
-//			case Constants.METHOD_FOUR: 
-//				jPanelLateralMethodOne.setVisible(true);
-//				this.add(jPanelLateralMethodOne);
-//				break;
+		case Constants.METHOD_THREE:
+			jPanelLateralMethodThree = new JPanelLateralMethodThree();
+			this.add(jPanelLateralMethodThree);
+			jPanelLateralMethodThree.updateUI();
+			break;
+		case Constants.METHOD_FOUR:
+			jPanelLateralMethodFour = new JPanelLateralMethodFour();
+			this.add(jPanelLateralMethodFour);
+			jPanelLateralMethodFour.updateUI();
+			break;
 		default:
 			jPanellateralDefault.setVisible(true);
 			this.add(jPanellateralDefault);
@@ -117,8 +121,6 @@ public class JPanelLateral extends JPanel {
 		g2d.drawLine(getWidth(), 0, getWidth(), getHeight());
 		g2d.setStroke(new BasicStroke(1));
 		g2d.setColor(Color.WHITE);
-//		g2d.drawLine(20 * JFrameMain.WIDTH_FRAME / 1920, 50 * JFrameMain.HEIGHT_FRAME / 1080,
-//				getWidth() - (20 * JFrameMain.WIDTH_FRAME / 1920), 50 * JFrameMain.HEIGHT_FRAME / 1080);
 		super.paint(g);
 
 	}
@@ -127,16 +129,15 @@ public class JPanelLateral extends JPanel {
 		jPanelLateralMethodTwo.moveAccordion(index);
 	}
 
+	public void moveAccordionUni(int index) {
+		jPanelLateralMethodThree.moveAccordion(index);
+	}
+	public void moveAccordionUniC(int index) {
+		jPanelLateralMethodThree.moveAccordionC(index);
+	}
+
 	public String getSeed() {
 		return jPanelLateralMethodOne.getSeed();
-	}
-
-	public String getMinM1() {
-		return jPanelLateralMethodOne.getMin();
-	}
-
-	public String getMaxM1() {
-		return jPanelLateralMethodOne.getMax();
 	}
 
 	public boolean getFill() {
@@ -146,7 +147,7 @@ public class JPanelLateral extends JPanel {
 	public void highlightM1(int index, int option) {
 		jPanelLateralMethodOne.highlight(index, option);
 	}
-	
+
 	public String getKM1() {
 		return jPanelLateralMethodTwo.getKM1();
 	}
@@ -159,14 +160,6 @@ public class JPanelLateral extends JPanel {
 		return jPanelLateralMethodTwo.getGM1();
 	}
 
-	public String getMinM2M1() {
-		return jPanelLateralMethodTwo.getMinM2M1();
-	}
-
-	public String getMaxM2M1() {
-		return jPanelLateralMethodTwo.getMaxM2M1();
-	}
-
 	public String getTM2() {
 		return jPanelLateralMethodTwo.getTM2();
 	}
@@ -175,18 +168,54 @@ public class JPanelLateral extends JPanel {
 		return jPanelLateralMethodTwo.getGM2();
 	}
 
-	public String getMinM2M2() {
-		return jPanelLateralMethodTwo.getMinM2M2();
-	}
-
-	public String getMaxM2M2() {
-		return jPanelLateralMethodTwo.getMaxM2M2();
-	}
-
 	public void highlightM2M1(int index, int option) {
-		jPanelLateralMethodTwo.highlightM2M1( index,  option);
+		jPanelLateralMethodTwo.highlightM2M1(index, option);
 	}
+
 	public void highlightM2M2(int index, int option) {
-		jPanelLateralMethodTwo.highlightM2M2( index,  option);
+		jPanelLateralMethodTwo.highlightM2M2(index, option);
+	}
+
+	public String getMinU() {
+		return jPanelLateralMethodThree.getMin();
+	}
+
+	public String getMaxU() {
+		return jPanelLateralMethodThree.getMaxU();
+	}
+
+	public String getSeedU() {
+		return jPanelLateralMethodThree.getSeedU();
+	}
+
+	public boolean getFillU() {
+		return jPanelLateralMethodThree.getFillU();
+	}
+
+	public String getKU() {
+		return jPanelLateralMethodThree.getKU();
+	}
+
+	public String getCU() {
+		return jPanelLateralMethodThree.getCU();
+	}
+
+	public String getGU1() {
+		return jPanelLateralMethodThree.getGU1();
+	}
+	public String getGU2() {
+		return jPanelLateralMethodThree.getGU2();
+	}
+
+	public String getTU() {
+		return jPanelLateralMethodThree.getTU();
+	}
+
+	public void moveAccordionNor(int i) {
+		jPanelLateralMethodFour.moveAccordion(i);
+	}
+
+	public void moveAccordionNorC(int i) {
+		jPanelLateralMethodFour.moveAccordionC(i);
 	}
 }

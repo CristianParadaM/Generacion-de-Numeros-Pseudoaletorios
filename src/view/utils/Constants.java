@@ -10,12 +10,39 @@ public class Constants {
 	public static final String COMMAND_SWITCH_METHOD_TWO = "COMMAND_SWITCH_METHOD_TWO";
 	public static final String COMMAND_SWITCH_METHOD_THREE = "COMMAND_SWITCH_METHOD_THREE";
 	public static final String COMMAND_SWITCH_METHOD_FOUR = "COMMAND_SWITCH_METHOD_FOUR";
+	
 	public static final String COMMAND_GENERATE_METHOD_ONE = "COMMAND_GENERATE_METHOD_ONE";
+	
 	public static final String COMMAND_GENERATE_CONGR_M1 = "COMMAND_GENERATE_CONGR_M1";
 	public static final String COMMAND_GENERATE_CONGR_M2 = "COMMAND_GENERATE_CONGR_M2";
+	
 	public static final String COMMAND_ACCORDION_CONGR_M1 = "COMMAND_ACCORDION_CONGR_M1";
 	public static final String COMMAND_ACCORDION_CONGR_M2 = "COMMAND_ACCORDION_CONGR_M2";
-
+	
+	public static final String COMMAND_ACCORDION_UNI_M1 = "COMMAND_ACCORDION_UNI_M1";
+	public static final String COMMAND_ACCORDION_UNI_M2 = "COMMAND_ACCORDION_UNI_M2";
+	
+	public static final String COMMAND_ACCORDION_UNI_C_M1 = "COMMAND_ACCORDION_UNI_C_M1";
+	public static final String COMMAND_ACCORDION_UNI_C_M2 = "COMMAND_ACCORDION_UNI_C_M2";
+	
+	public static final String COMMAND_GENERATE_METHOD_ONE_U = "COMMAND_GENERATE_METHOD_ONE_U";
+	
+	public static final String COMMAND_GENERATE_CONGR_U_M1 = "COMMAND_GENERATE_CONGR_U_M1";
+	public static final String COMMAND_GENERATE_CONGR_U_M2 = "COMMAND_GENERATE_CONGR_U_M2";
+	
+	//NORM
+	
+	public static final String COMMAND_ACCORDION_NOR_M1 = "COMMAND_ACCORDION_NOR_M1";
+	public static final String COMMAND_ACCORDION_NOR_M2 = "COMMAND_ACCORDION_NOR_M2";
+	
+	public static final String COMMAND_ACCORDION_NOR_C_M1 = "COMMAND_ACCORDION_NOR_C_M1";
+	public static final String COMMAND_ACCORDION_NOR_C_M2 = "COMMAND_ACCORDION_NOR_C_M2";
+	
+	public static final String COMMAND_GENERATE_METHOD_ONE_NOR = "COMMAND_GENERATE_METHOD_ONE_NOR";
+	
+	public static final String COMMAND_GENERATE_CONGR_N_M1 = "COMMAND_GENERATE_CONGR_N_M1";
+	public static final String COMMAND_GENERATE_CONGR_N_M2 = "COMMAND_GENERATE_CONGR_N_M2";
+	
 	// TEXT
 	public static final String METHOD_ONE = "Cuadrados Medios";
 	public static final String METHOD_TWO = "Congruenciales";
@@ -32,6 +59,7 @@ public class Constants {
 	public static final String RADIO_BUTTON_DER = "Por derecha";
 	public static final String CONGRUENCIAL_MULTIPLICATIVO = "Congruencial Multiplicativo";
 	public static final String CONGRUENCIAL_LINEAL = "Congruencial Lineal";
+	public static final String GRAPHIC = "Grafica Generada";
 	public static final String NUMBER_G = "Numero g:";
 	public static final String NUMBER_C = "Numero c:";
 	public static final String NUMBER_K = "Numero k:";
@@ -39,6 +67,9 @@ public class Constants {
 	public static final String NUMEROS_PSEUDO_ALEATORIOS_GENERADOS = "Numeros Pseudo-Aleatorios Generados";
 	public static final String MAIN_MENU = "Menu Principal";
 	public static final String CHOOSE_OPTION = "A continuacion elija cualquiera de las opciones que se le presentan arriba, que lo llevaran a cada uno de los diferentes metodos de generacion de numeros pseudoaleatorios :)";
+	public static final String TITLE_CONGR = "A continuacion elija por cual metodo generar los numeros pseudoaleatorios:";
+	public static final String MEAN = "Media:";
+	public static final String SD = "Desviacion estandar:";
 	
 	//ERRORS
 	public static final String ERROR = "Error";
@@ -56,6 +87,8 @@ public class Constants {
 	public static final String PLACEHOLDER_NUMERO_G = "Numero entero mayor a k y c";
 	public static final String PLACEHOLDER_NUMERO_C = "Numero enterio positivo impar";
 	public static final String PLACEHOLDER_NUMERO_K = "Numero entero positivo";
+	public static final String PLACEHOLDER_MEAN = "Digite la media";
+	public static final String PLACEHOLDER_SD = "Digite la desviacion estandar";
 
 	// FONT
 	public static final String FONT_APP = "Calibri (Cuerpo)";

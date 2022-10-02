@@ -16,7 +16,7 @@ import javax.swing.border.LineBorder;
 import view.utils.Constants;
 
 public class JPanelMain extends JPanel {
-	
+
 	private JPanel jpanelHeader;
 	private JPanelLateral jpanelLateral;
 	private JPanelContent jpanelContent;
@@ -24,10 +24,10 @@ public class JPanelMain extends JPanel {
 	private JButton jButtonMethodTwo;
 	private JButton jButtonMethodThree;
 	private JButton jButtonMethodFour;
-	
+
 	public JPanelMain() {
 		super(new BorderLayout());
-		this.jpanelHeader = new JPanel(new GridLayout(1,4));
+		this.jpanelHeader = new JPanel(new GridLayout(1, 4));
 		this.jpanelContent = new JPanelContent();
 		this.jpanelLateral = new JPanelLateral();
 		jButtonMethodOne = new JButton(Constants.METHOD_ONE);
@@ -42,7 +42,7 @@ public class JPanelMain extends JPanel {
 		addPropertiesButtons(jButtonMethodTwo, Constants.COMMAND_SWITCH_METHOD_TWO);
 		addPropertiesButtons(jButtonMethodThree, Constants.COMMAND_SWITCH_METHOD_THREE);
 		addPropertiesButtons(jButtonMethodFour, Constants.COMMAND_SWITCH_METHOD_FOUR);
-		
+
 		jButtonMethodOne.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -79,26 +79,26 @@ public class JPanelMain extends JPanel {
 				jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS);
 			}
 		});
-		
+
 		this.jpanelHeader.add(jButtonMethodOne);
 		this.jpanelHeader.add(jButtonMethodTwo);
 		this.jpanelHeader.add(jButtonMethodThree);
 		this.jpanelHeader.add(jButtonMethodFour);
-		
+
 		this.jpanelContent.setBackground(Constants.COLOR_BACKGROUND_CONTENT);
-		
+
 		this.add(jpanelHeader, BorderLayout.NORTH);
 		this.add(jpanelContent, BorderLayout.CENTER);
 		this.add(jpanelLateral, BorderLayout.WEST);
 	}
-	
+
 	private void addPropertiesButtons(JButton button, String actionComand) {
 		button.setFont(new Font(Constants.FONT_APP, Font.PLAIN, Constants.FONT_SIZE_APP_BUTTONS));
 		button.setBackground(Constants.COLOR_BUTTONS_METHODS);
 		button.setForeground(Color.WHITE);
 		button.setBorder(new LineBorder(Constants.COLOR_BORDER));
 		button.setFocusPainted(false);
-		button.setPreferredSize(new Dimension(0,35));
+		button.setPreferredSize(new Dimension(0, 35));
 		button.addActionListener(JFrameMain.getInstance());
 		button.setActionCommand(actionComand);
 		button.addMouseListener(new MouseAdapter() {
@@ -106,7 +106,7 @@ public class JPanelMain extends JPanel {
 			public void mouseEntered(MouseEvent e) {
 				button.setBorder(new LineBorder(Color.WHITE));
 			}
-			
+
 			@Override
 			public void mouseExited(MouseEvent e) {
 				button.setBorder(new LineBorder(Constants.COLOR_BORDER));
@@ -114,29 +114,30 @@ public class JPanelMain extends JPanel {
 		});
 	}
 
-	
-	public void showMethod(String method, ArrayList<Object[]> info, String[] columnNames) {
-		jpanelContent.changeMethodContent(method, info, columnNames);
+	public void showMethod(String method, ArrayList<Object[]> info, String[] columnNames, ArrayList<Double> x,
+			ArrayList<Double> y) {
+		jpanelContent.changeMethodContent(method, info, columnNames, x, y);
 	}
 
-	public void changeToMethod(String method) {
-		jpanelLateral.changeMethodLateral(method);;
+	public void changeToMethod(String method, String... commands) {
+		jpanelLateral.changeMethodLateral(method, commands);
+		jpanelContent.changeMethodContent(".", null, null, null, null);
 	}
 
 	public void moveAccordion(int index) {
 		jpanelLateral.moveAccordion(index);
 	}
 
+	public void moveAccordionUni(int index) {
+		jpanelLateral.moveAccordionUni(index);
+	}
+
+	public void moveAccordionUniC(int index) {
+		jpanelLateral.moveAccordionUniC(index);
+	}
+
 	public String getSeed() {
 		return jpanelLateral.getSeed();
-	}
-
-	public String getMinM1() {
-		return jpanelLateral.getMinM1();
-	}
-
-	public String getMaxM1() {
-		return jpanelLateral.getMaxM1();
 	}
 
 	public boolean getFill() {
@@ -146,7 +147,7 @@ public class JPanelMain extends JPanel {
 	public void highlightM1(int index, int option) {
 		jpanelLateral.highlightM1(index, option);
 	}
-	
+
 	public String getKM1() {
 		return jpanelLateral.getKM1();
 	}
@@ -159,14 +160,6 @@ public class JPanelMain extends JPanel {
 		return jpanelLateral.getGM1();
 	}
 
-	public String getMinM2M1() {
-		return jpanelLateral.getMinM2M1();
-	}
-
-	public String getMaxM2M1() {
-		return jpanelLateral.getMaxM2M1();
-	}
-
 	public String getTM2() {
 		return jpanelLateral.getTM2();
 	}
@@ -175,19 +168,56 @@ public class JPanelMain extends JPanel {
 		return jpanelLateral.getGM2();
 	}
 
-	public String getMinM2M2() {
-		return jpanelLateral.getMinM2M2();
-	}
-
-	public String getMaxM2M2() {
-		return jpanelLateral.getMaxM2M2();
-	}
-
 	public void highlightM2M1(int index, int option) {
-		jpanelLateral.highlightM2M1( index,  option);
+		jpanelLateral.highlightM2M1(index, option);
 	}
+
 	public void highlightM2M2(int index, int option) {
-		jpanelLateral.highlightM2M2( index,  option);
+		jpanelLateral.highlightM2M2(index, option);
 	}
-	
+
+	public String getMinU() {
+		return jpanelLateral.getMinU();
+	}
+
+	public String getMaxU() {
+		return jpanelLateral.getMaxU();
+	}
+
+	public String getSeedU() {
+		return jpanelLateral.getSeedU();
+	}
+
+	public boolean getFillU() {
+		return jpanelLateral.getFillU();
+	}
+
+	public String getKU() {
+		return jpanelLateral.getKU();
+	}
+
+	public String getCU() {
+		return jpanelLateral.getCU();
+	}
+
+	public String getGU1() {
+		return jpanelLateral.getGU1();
+	}
+
+	public String getGU2() {
+		return jpanelLateral.getGU2();
+	}
+
+	public String getTU() {
+		return jpanelLateral.getTU();
+	}
+
+	public void moveAccordionNor(int i) {
+		jpanelLateral.moveAccordionNor(i);
+	}
+
+	public void moveAccordionNorC(int i) {
+		jpanelLateral.moveAccordionNorC(i);
+	}
+
 }

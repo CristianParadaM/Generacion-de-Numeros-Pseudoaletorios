@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +32,7 @@ public class JFrameMain extends JFrame implements ActionListener {
 		this.jPanelMain = new JPanelMain();
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(1300 * WIDTH_FRAME / 1920, 800 * HEIGHT_FRAME / 1080);
-		this.setMinimumSize(new Dimension(1300 * WIDTH_FRAME / 1920, 800 * HEIGHT_FRAME / 1080));
+		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setContentPane(jPanelMain);
 		this.setVisible(true);
@@ -42,32 +41,36 @@ public class JFrameMain extends JFrame implements ActionListener {
 	/**
 	 * @param methodOne
 	 */
-	public void showMethod(String method, ArrayList<Object[]> info, String[] columnNames) {
-		jPanelMain.showMethod(method, info, columnNames);
+	public void showMethod(String method, ArrayList<Object[]> info, String[] columnNames, ArrayList<Double> x,
+			ArrayList<Double> y) {
+		jPanelMain.showMethod(method, info, columnNames, x, y);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
-		case Constants.COMMAND_SWITCH_METHOD_ONE -> jPanelMain.changeToMethod(Constants.METHOD_ONE);
-		case Constants.COMMAND_SWITCH_METHOD_TWO -> jPanelMain.changeToMethod(Constants.METHOD_TWO);
+		case Constants.COMMAND_SWITCH_METHOD_ONE -> jPanelMain.changeToMethod(Constants.METHOD_ONE,
+				Constants.COMMAND_GENERATE_METHOD_ONE);
+		case Constants.COMMAND_SWITCH_METHOD_TWO -> jPanelMain.changeToMethod(Constants.METHOD_TWO,
+				Constants.COMMAND_ACCORDION_CONGR_M1, Constants.COMMAND_ACCORDION_CONGR_M2,
+				Constants.COMMAND_GENERATE_CONGR_M1, Constants.COMMAND_GENERATE_CONGR_M2);
 		case Constants.COMMAND_SWITCH_METHOD_THREE -> jPanelMain.changeToMethod(Constants.METHOD_THREE);
 		case Constants.COMMAND_SWITCH_METHOD_FOUR -> jPanelMain.changeToMethod(Constants.METHOD_FOUR);
 		case Constants.COMMAND_ACCORDION_CONGR_M1 -> jPanelMain.moveAccordion(0);
 		case Constants.COMMAND_ACCORDION_CONGR_M2 -> jPanelMain.moveAccordion(1);
+		case Constants.COMMAND_ACCORDION_UNI_C_M1 -> jPanelMain.moveAccordionUniC(0);
+		case Constants.COMMAND_ACCORDION_UNI_C_M2 -> jPanelMain.moveAccordionUniC(1);
+		case Constants.COMMAND_ACCORDION_UNI_M1 -> jPanelMain.moveAccordionUni(0);
+		case Constants.COMMAND_ACCORDION_UNI_M2 -> jPanelMain.moveAccordionUni(1);
+		case Constants.COMMAND_ACCORDION_NOR_M1 -> jPanelMain.moveAccordionNor(0);
+		case Constants.COMMAND_ACCORDION_NOR_M2 -> jPanelMain.moveAccordionNor(1);
+		case Constants.COMMAND_ACCORDION_NOR_C_M1 -> jPanelMain.moveAccordionNorC(0);
+		case Constants.COMMAND_ACCORDION_NOR_C_M2 -> jPanelMain.moveAccordionNorC(1);
 		}
 	}
 
 	public String getSeed() {
 		return jPanelMain.getSeed();
-	}
-
-	public String getMinM1() {
-		return jPanelMain.getMinM1();
-	}
-
-	public String getMaxM1() {
-		return jPanelMain.getMaxM1();
 	}
 
 	public boolean getFill() {
@@ -78,8 +81,8 @@ public class JFrameMain extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(this, message, title, type);
 	}
 
-	public void highlightM1(int index,int option) {
-		jPanelMain.highlightM1(index ,option);
+	public void highlightM1(int index, int option) {
+		jPanelMain.highlightM1(index, option);
 	}
 
 	public String getKM1() {
@@ -94,14 +97,6 @@ public class JFrameMain extends JFrame implements ActionListener {
 		return jPanelMain.getGM1();
 	}
 
-	public String getMinM2M1() {
-		return jPanelMain.getMinM2M1();
-	}
-
-	public String getMaxM2M1() {
-		return jPanelMain.getMaxM2M1();
-	}
-
 	public String getTM2() {
 		return jPanelMain.getTM2();
 	}
@@ -110,19 +105,48 @@ public class JFrameMain extends JFrame implements ActionListener {
 		return jPanelMain.getGM2();
 	}
 
-	public String getMinM2M2() {
-		return jPanelMain.getMinM2M2();
-	}
-
-	public String getMaxM2M2() {
-		return jPanelMain.getMaxM2M2();
-	}
-
 	public void highlightM2M1(int index, int option) {
-		jPanelMain.highlightM2M1( index,  option);
+		jPanelMain.highlightM2M1(index, option);
 	}
+
 	public void highlightM2M2(int index, int option) {
-		jPanelMain.highlightM2M2( index,  option);
+		jPanelMain.highlightM2M2(index, option);
 	}
-	
+
+	public String getMinU() {
+		return jPanelMain.getMinU();
+	}
+
+	public String getMaxU() {
+		return jPanelMain.getMaxU();
+	}
+
+	public String getSeedU() {
+		return jPanelMain.getSeedU();
+	}
+
+	public boolean getFillU() {
+		return jPanelMain.getFillU();
+	}
+
+	public String getKU() {
+		return jPanelMain.getKU();
+	}
+
+	public String getCU() {
+		return jPanelMain.getCU();
+	}
+
+	public String getGU1() {
+		return jPanelMain.getGU1();
+	}
+
+	public String getGU2() {
+		return jPanelMain.getGU2();
+	}
+
+	public String getTU() {
+		return jPanelMain.getTU();
+	}
+
 }

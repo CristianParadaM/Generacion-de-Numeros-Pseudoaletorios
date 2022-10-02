@@ -38,28 +38,20 @@ public class JPanelContent extends JPanel {
 
 		this.jPanelContentDefault.add(jLabelImgLogo, gbc);
 
-		changeMethodContent(".",null,null);
+		changeMethodContent(".",null,null,null,null);
 	}
 
-	public void changeMethodContent(String option, ArrayList<Object[]> info, String[] columnNames) {
+	public void changeMethodContent(String option, ArrayList<Object[]> info, String[] columnNames, ArrayList<Double> x,ArrayList<Double> y) {
 		removeComponents();
 		switch (option) {
 		case Constants.METHOD_ONE:
 			this.jPanelContentMethodOne = new JPanelContentMethodOne(info, columnNames);
 			this.add(jPanelContentMethodOne);
 			break;
-//			case Constants.METHOD_TWO: 
-//				jPanelLateralMethodOne.setVisible(true);
-//				this.add(jPanelLateralMethodOne);
-//				break;
-//			case Constants.METHOD_THREE: 
-//				jPanelLateralMethodOne.setVisible(true);
-//				this.add(jPanelLateralMethodOne);
-//				break;
-//			case Constants.METHOD_FOUR: 
-//				jPanelLateralMethodOne.setVisible(true);
-//				this.add(jPanelLateralMethodOne);
-//				break;
+			case Constants.METHOD_TWO:
+				JPanelContentMethodTwo jPanelContentMethodTwo = new JPanelContentMethodTwo(info, columnNames, x, y);
+				this.add(jPanelContentMethodTwo);
+				break;
 		default:
 			jPanelContentDefault.setVisible(true);
 			this.add(jPanelContentDefault);

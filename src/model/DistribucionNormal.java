@@ -56,25 +56,16 @@ public class DistribucionNormal {
 		ArrayList<Double[]> intervals = generateIntervals();
 		LinkedHashMap<String, Integer> frecuencies = new LinkedHashMap<>();
 		for (Double[] interval : intervals) {
-			frecuencies.put(interval[0]+" - "+interval[1], 0);
+			frecuencies.put(interval[0]+"-"+interval[1], 0);
 		}
 		for (Double number : numbers) {
 			for (Double[] interval : intervals) {
 				if (number > interval[0] && number < interval[1]) {
-					frecuencies.put(interval[0]+" - "+interval[1], frecuencies.get(interval[0]+" - "+interval[1])+1);
+					frecuencies.put(interval[0]+"-"+interval[1], frecuencies.get(interval[0]+"-"+interval[1])+1);
 					break;
 				}
 			}
 		}
 		return frecuencies;
-	}
-	
-	public void show() {
-		HashMap<String, Integer> frecuencies = calculateFrequencies();
-		frecuencies.forEach((k,v) -> System.out.println("Key: " + k + ": Value: " + v));
-	}
-	
-	public static void main(String[] args) {
-		new DistribucionNormal(50, 5, new Congruencial(4, 3, 7).getRi()).show();
 	}
 }

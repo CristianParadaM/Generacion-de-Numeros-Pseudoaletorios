@@ -3,8 +3,6 @@ package view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -14,8 +12,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.border.LineBorder;
-
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
@@ -46,14 +42,15 @@ public class JPanelContentMethodTwo extends JScrollPane {
 
 	private void fillDataSet(DefaultCategoryDataset dataset, ArrayList<Double> x, ArrayList<Double> y) {
 		for (int i = 0; i < x.size(); i++) {
-			dataset.addValue(x.get(i), "", y.get(i));
+			dataset.addValue(y.get(i), "", x.get(i));
 		}
 	}
 
 	private void init(ArrayList<Double> x, ArrayList<Double> y) {
 		this.jPanelContent.setOpaque(false);
 		this.jPanelContent.setLayout(null);
-		this.jPanelContent.setPreferredSize(new Dimension(960, 1100));
+		this.jPanelContent.setPreferredSize(
+				new Dimension(960 * JFrameMain.WIDTH_FRAME / 1920, 1300 * JFrameMain.HEIGHT_FRAME / 1080));
 		this.jLabelTitle.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
 		this.jLabelTitle2.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
 		this.setOpaque(false);
@@ -61,6 +58,7 @@ public class JPanelContentMethodTwo extends JScrollPane {
 		this.getViewport().setOpaque(false);
 		this.getVerticalScrollBar().setPreferredSize(new Dimension(0, 0));
 		this.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		this.getVerticalScrollBar().setUnitIncrement(20);
 
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		fillDataSet(dataset, x, y);
@@ -72,7 +70,7 @@ public class JPanelContentMethodTwo extends JScrollPane {
 		plot.setOutlineVisible(false);
 		plot.setAxisOffset(new RectangleInsets(0D, 0D, 0D, 0D));
 		BufferedImage img = jFreeChartBar.createBufferedImage(800 * JFrameMain.WIDTH_FRAME / 1920,
-				300 * JFrameMain.HEIGHT_FRAME / 1080);
+				500 * JFrameMain.HEIGHT_FRAME / 1080);
 		configureLabel(jLabelTitle, Constants.FONT_SIZE_APP_TITLES, Font.BOLD);
 		configureLabel(jLabelTitle2, Constants.FONT_SIZE_APP_TITLES, Font.BOLD);
 		addComponents(img);
@@ -87,9 +85,9 @@ public class JPanelContentMethodTwo extends JScrollPane {
 		this.jPanelContent.add(jLabelTitle2).setBounds(40 * JFrameMain.WIDTH_FRAME / 1920,
 				690 * JFrameMain.HEIGHT_FRAME / 1080, 880 * JFrameMain.WIDTH_FRAME / 1920,
 				50 * JFrameMain.HEIGHT_FRAME / 1080);
-		this.jPanelContent.add(new JLabel(new ImageIcon(img))).setBounds(20 * JFrameMain.WIDTH_FRAME / 1920,
+		this.jPanelContent.add(new JLabel(new ImageIcon(img))).setBounds(40 * JFrameMain.WIDTH_FRAME / 1920,
 				760 * JFrameMain.HEIGHT_FRAME / 1080, 880 * JFrameMain.WIDTH_FRAME / 1920,
-				300 * JFrameMain.HEIGHT_FRAME / 1080);
+				500 * JFrameMain.HEIGHT_FRAME / 1080);
 	}
 
 	private void configureLabel(JLabel jLabel, int fontSize, int style) {

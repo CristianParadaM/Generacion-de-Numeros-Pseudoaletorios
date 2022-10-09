@@ -21,25 +21,25 @@ public class Congruencial {
 		this.g = g;
 	}
 	
-	public ArrayList<Double[]> congruenciaLineal(){
+	public ArrayList<Object[]> congruenciaLineal(){
 		return generateTable(1+2*k, c, (int) Math.pow(2, g));
 	}
 	
-	public ArrayList<Double[]> congruenciaMultiplicativo(){
+	public ArrayList<Object[]> congruenciaMultiplicativo(){
 		return generateTable(8*t+3, 0, (int) Math.pow(2, g));
 	}
 	
 	public double[] getRi() {
-		ArrayList<Double[]> table = t != 0?congruenciaMultiplicativo():congruenciaLineal();
+		ArrayList<Object[]> table = t != 0?congruenciaMultiplicativo():congruenciaLineal();
 		double[] numbers = new double[table.size()];
 		for (int i = 0; i < numbers.length; i++) {
-			numbers[i] = table.get(i)[2];
+			numbers[i] = (double)table.get(i)[2];
 		}
 		return numbers;
 	}
 
-	private ArrayList<Double[]> generateTable(int a, int c, int m) {
-		ArrayList<Double[]> table = new ArrayList<>();
+	private ArrayList<Object[]> generateTable(int a, int c, int m) {
+		ArrayList<Object[]> table = new ArrayList<>();
 		double x_i = 1;
 		for (int i = 1; i <= (c!=0?m:m/4); i++) {
 			Double[] row = new Double[3];
@@ -53,5 +53,4 @@ public class Congruencial {
 		}
 		return table;
 	}
-
 }

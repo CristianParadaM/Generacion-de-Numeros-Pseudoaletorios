@@ -136,7 +136,7 @@ public class JPanelLateralMethodFour extends JScrollPane {
 		addDefault();
 		if (index == 0) {
 			jButtonAccordionM2.setVisible(true);
-			this.jPanelLateralMethodOne = new JPanelLateralMethodOne(Constants.COMMAND_GENERATE_METHOD_ONE_U);
+			this.jPanelLateralMethodOne = new JPanelLateralMethodOne(Constants.COMMAND_GENERATE_METHOD_ONE_NOR);
 			this.jPanelContainer.add(jPanelLateralMethodOne).setBounds(0, 300 * JFrameMain.HEIGHT_FRAME / 1080,
 					320 * JFrameMain.WIDTH_FRAME / 1920, 300 * JFrameMain.HEIGHT_FRAME / 1080);
 			this.jPanelContainer.add(jButtonAccordionM2).setBounds(0, 605 * JFrameMain.HEIGHT_FRAME / 1080,
@@ -147,8 +147,8 @@ public class JPanelLateralMethodFour extends JScrollPane {
 		} else {
 			this.jButtonAccordionM2.setVisible(true);
 			this.jPanelLateralMethodTwo = new JPanelLateralMethodTwo(Constants.COMMAND_ACCORDION_NOR_C_M1,
-					Constants.COMMAND_ACCORDION_NOR_C_M2, Constants.COMMAND_GENERATE_CONGR_N_M1,
-					Constants.COMMAND_GENERATE_CONGR_N_M2);
+					Constants.COMMAND_ACCORDION_NOR_C_M2, Constants.COMMAND_GENERATE_CONGR_N_M2,
+					Constants.COMMAND_GENERATE_CONGR_N_M1);
 			this.jPanelContainer.add(jButtonAccordionM2).setBounds(0, 300 * JFrameMain.HEIGHT_FRAME / 1080,
 					320 * JFrameMain.WIDTH_FRAME / 1920, 35 * JFrameMain.HEIGHT_FRAME / 1080);
 			this.jPanelContainer.add(jPanelLateralMethodTwo).setBounds(0, 335 * JFrameMain.HEIGHT_FRAME / 1080,
@@ -202,31 +202,31 @@ public class JPanelLateralMethodFour extends JScrollPane {
 		return jTextFieldSD.getText();
 	}
 
-	public String getSeedU() {
+	public String getSeedN() {
 		return jPanelLateralMethodOne.getSeed();
 	}
 
-	public boolean getFillU() {
+	public boolean getFillN() {
 		return jPanelLateralMethodOne.getFill();
 	}
 
-	public String getKU() {
+	public String getKN() {
 		return jPanelLateralMethodTwo.getKM1();
 	}
 
-	public String getCU() {
+	public String getCN() {
 		return jPanelLateralMethodTwo.getCM1();
 	}
 
-	public String getGU1() {
+	public String getGN1() {
 		return jPanelLateralMethodTwo.getGM1();
 	}
 
-	public String getGU2() {
+	public String getGN2() {
 		return jPanelLateralMethodTwo.getGM2();
 	}
 
-	public String getTU() {
+	public String getTN() {
 		return jPanelLateralMethodTwo.getTM2();
 	}
 

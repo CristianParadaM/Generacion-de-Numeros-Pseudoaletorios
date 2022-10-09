@@ -42,51 +42,11 @@ public class JPanelMain extends JPanel {
 		addPropertiesButtons(jButtonMethodTwo, Constants.COMMAND_SWITCH_METHOD_TWO);
 		addPropertiesButtons(jButtonMethodThree, Constants.COMMAND_SWITCH_METHOD_THREE);
 		addPropertiesButtons(jButtonMethodFour, Constants.COMMAND_SWITCH_METHOD_FOUR);
-
-		jButtonMethodOne.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
-				jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS);
-				jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS);
-				jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS);
-			}
-		});
-		jButtonMethodTwo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
-				jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS);
-				jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS);
-				jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS);
-			}
-		});
-		jButtonMethodThree.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
-				jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS);
-				jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS);
-				jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS);
-			}
-		});
-		jButtonMethodFour.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
-				jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS);
-				jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS);
-				jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS);
-			}
-		});
-
 		this.jpanelHeader.add(jButtonMethodOne);
 		this.jpanelHeader.add(jButtonMethodTwo);
 		this.jpanelHeader.add(jButtonMethodThree);
 		this.jpanelHeader.add(jButtonMethodFour);
-
 		this.jpanelContent.setBackground(Constants.COLOR_BACKGROUND_CONTENT);
-
 		this.add(jpanelHeader, BorderLayout.NORTH);
 		this.add(jpanelContent, BorderLayout.CENTER);
 		this.add(jpanelLateral, BorderLayout.WEST);
@@ -122,6 +82,38 @@ public class JPanelMain extends JPanel {
 	public void changeToMethod(String method, String... commands) {
 		jpanelLateral.changeMethodLateral(method, commands);
 		jpanelContent.changeMethodContent(".", null, null, null, null);
+		changeButtonBackGround(method);
+	}
+
+	private void changeButtonBackGround(String method) {
+		switch (method) {
+		case Constants.METHOD_ONE:
+			jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
+			jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			break;
+		case Constants.METHOD_TWO:
+			jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
+			jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			break;
+		case Constants.METHOD_THREE:
+			jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
+			jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			break;
+		case Constants.METHOD_FOUR:
+			jButtonMethodFour.setBackground(Constants.COLOR_BUTTONS_METHODS_HOVER);
+			jButtonMethodOne.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			jButtonMethodTwo.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			jButtonMethodThree.setBackground(Constants.COLOR_BUTTONS_METHODS);
+			break;
+			
+
+		}
 	}
 
 	public void moveAccordion(int index) {
@@ -218,6 +210,42 @@ public class JPanelMain extends JPanel {
 
 	public void moveAccordionNorC(int i) {
 		jpanelLateral.moveAccordionNorC(i);
+	}
+
+	public String getMean() {
+		return jpanelLateral.getMean();
+	}
+
+	public String getSD() {
+		return jpanelLateral.getSD();
+	}
+
+	public String getSeedN() {
+		return jpanelLateral.getSeedN();
+	}
+
+	public boolean getFillN() {
+		return jpanelLateral.getFillN();
+	}
+
+	public String getKN() {
+		return jpanelLateral.getKN();
+	}
+
+	public String getCN() {
+		return jpanelLateral.getCN();
+	}
+
+	public String getGN1() {
+		return jpanelLateral.getG1N();
+	}
+
+	public String getGN2() {
+		return jpanelLateral.getG2N();
+	}
+
+	public String getTN() {
+		return jpanelLateral.getTN();
 	}
 
 }

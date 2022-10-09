@@ -13,8 +13,8 @@ import view.utils.Constants;
 
 public class JPanelContent extends JPanel {
 
-	private JPanelContentMethodOne jPanelContentMethodOne;
 
+	private JPanelContentMethodOne jPanelContentMethodOne;
 	private JLabel jLabelImgLogo;
 	private JPanel jPanelContentDefault;
 	private GridBagConstraints gbc;
@@ -38,23 +38,30 @@ public class JPanelContent extends JPanel {
 
 		this.jPanelContentDefault.add(jLabelImgLogo, gbc);
 
-		changeMethodContent(".",null,null,null,null);
+		changeMethodContent(".", null, null, null, null);
 	}
 
-	public void changeMethodContent(String option, ArrayList<Object[]> info, String[] columnNames, ArrayList<Double> x,ArrayList<Double> y) {
+	public void changeMethodContent(String option, ArrayList<Object[]> info, String[] columnNames, ArrayList<Double> x,
+			ArrayList<Double> y) {
 		removeComponents();
 		switch (option) {
 		case Constants.METHOD_ONE:
 			this.jPanelContentMethodOne = new JPanelContentMethodOne(info, columnNames);
 			this.add(jPanelContentMethodOne);
+			jPanelContentMethodOne.updateUI();
+			this.updateUI();
 			break;
-			case Constants.METHOD_TWO:
-				JPanelContentMethodTwo jPanelContentMethodTwo = new JPanelContentMethodTwo(info, columnNames, x, y);
-				this.add(jPanelContentMethodTwo);
-				break;
+		case Constants.METHOD_TWO:
+			JPanelContentMethodTwo jPanelContentMethodTwo = new JPanelContentMethodTwo(info, columnNames, x, y);
+			this.add(jPanelContentMethodTwo);
+			jPanelContentMethodTwo.updateUI();
+			this.updateUI();
+			break;
 		default:
 			jPanelContentDefault.setVisible(true);
 			this.add(jPanelContentDefault);
+			jPanelContentDefault.updateUI();
+			this.updateUI();
 			break;
 		}
 	}

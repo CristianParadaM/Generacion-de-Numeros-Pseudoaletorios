@@ -72,8 +72,8 @@ public class JPanelLateralMethodOne extends JPanel {
 		addComponents();
 		jButtonGenerate.addActionListener(Controller.getInstance());
 		jButtonGenerate.setActionCommand(actionCommandB);
-		jRadioButtonIz.setMnemonic('i');
-		jRadioButtonDer.setMnemonic('d');
+		jRadioButtonIz.setMnemonic(1);
+		jRadioButtonDer.setMnemonic(2);
 	}
 
 	private void addComponents() {
@@ -169,7 +169,7 @@ public class JPanelLateralMethodOne extends JPanel {
 	}
 
 	public boolean getFill() {
-		return buttonGroup.getSelection().getMnemonic() == 'i';
+		return buttonGroup.getSelection().getMnemonic() == 1;
 	}
 
 	public void highlight(int index, int option) {

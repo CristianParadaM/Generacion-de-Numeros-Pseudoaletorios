@@ -1,29 +1,15 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
-import javax.swing.Box;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.title.Title;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.ui.RectangleInsets;
-
 import view.utils.Constants;
 import view.utils.JTableMethod;
 
@@ -60,24 +46,6 @@ public class JPanelContentMethodOne extends JPanel {
 		this.add(jTableReports, gbc);
 		gbc.weighty = 0;
 		gbc.gridy = 2;
-//		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-//		dataset.addValue(1, "", "" + 1);
-//		dataset.addValue(2, "", "" + 2);
-//		dataset.addValue(3, "", "" + 3);
-//		dataset.addValue(4, "", "" + 4);
-//		dataset.addValue(5, "", "" + 5);
-//		dataset.addValue(6, "", "" + 6);
-//		JFreeChart chart = ChartFactory.createBarChart("", "", "", dataset, PlotOrientation.VERTICAL, false, false,
-//				true);
-//		chart.removeLegend();
-//		CategoryPlot plot = chart.getCategoryPlot();
-//        plot.setBackgroundPaint(Color.WHITE);
-//        plot.setRangeGridlinePaint(Color.WHITE);
-//        plot.setOutlineVisible(false);
-//        plot.setAxisOffset(new RectangleInsets(0D, 0D, 0D, 0D));
-//		BufferedImage img = chart.createBufferedImage(300, 300);
-//		this.add(new JLabel(new ImageIcon(img)), gbc);
-
 	}
 
 	private void configureLabel(JLabel jLabel, int fontSize, int style) {

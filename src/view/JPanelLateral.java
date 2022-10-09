@@ -23,10 +23,8 @@ public class JPanelLateral extends JPanel {
 	private JPanelLateralMethodTwo jPanelLateralMethodTwo;
 	private JPanelLateralMethodThree jPanelLateralMethodThree;
 	private JPanelLateralMethodFour jPanelLateralMethodFour;
-
 	private JPanel jPanellateralDefault;
 	private GridBagConstraints gbc;
-
 	private JLabel jLabelMainMenu;
 	private JLabel jLabelChooseOption;
 	private JLabel jLabelVersion;
@@ -49,7 +47,6 @@ public class JPanelLateral extends JPanel {
 		configureLabel(jLabelMainMenu, Constants.FONT_SIZE_APP_TITLES, Font.BOLD);
 		configureLabel(jLabelChooseOption, Constants.FONT_SIZE_APP_LABELS, Font.PLAIN);
 		configureLabel(jLabelVersion, Constants.FONT_SIZE_APP_PLACEHOLDER, Font.ITALIC);
-
 		gbc.fill = 1;
 		gbc.weightx = 1;
 		gbc.insets.top = 5;
@@ -217,5 +214,38 @@ public class JPanelLateral extends JPanel {
 
 	public void moveAccordionNorC(int i) {
 		jPanelLateralMethodFour.moveAccordionC(i);
+	}
+
+	public String getMean() {
+		return jPanelLateralMethodFour.getMean();
+	}
+
+	public String getSD() {
+		return jPanelLateralMethodFour.getSD();
+	}
+
+	public String getSeedN() {
+		return jPanelLateralMethodFour.getSeedN();
+	}
+
+	public boolean getFillN() {
+		return jPanelLateralMethodFour.getFillN();
+	}
+
+	public String getKN() {
+		return jPanelLateralMethodFour.getKN();
+	}
+	public String getCN() {
+		return jPanelLateralMethodFour.getCN();
+	}
+	public String getG1N() {
+		return jPanelLateralMethodFour.getGN1();
+	}
+	public String getG2N() {
+		return jPanelLateralMethodFour.getGN2();
+	}
+
+	public String getTN() {
+		return jPanelLateralMethodFour.getTN();
 	}
 }

@@ -149,4 +149,40 @@ public class JFrameMain extends JFrame implements ActionListener {
 		return jPanelMain.getTU();
 	}
 
+	public String getMean() {
+		return jPanelMain.getMean();
+	}
+
+	public String getSD() {
+		return jPanelMain.getSD();
+	}
+
+	public String getSeedN() {
+		return jPanelMain.getSeedN();
+	}
+
+	public boolean getFillN() {
+		return jPanelMain.getFillN();
+	}
+
+	public String getKN() {
+		return jPanelMain.getKN();
+	}
+
+	public String getCN() {
+		return jPanelMain.getCN();
+	}
+
+	public String getGN1() {
+		return jPanelMain.getGN1();
+	}
+
+	public String getGN2() {
+		return jPanelMain.getGN2();
+	}
+
+	public String getTN() {
+		return jPanelMain.getTN();
+	}
+
 }

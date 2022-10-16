@@ -17,7 +17,14 @@ import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
 import model.TextPrompt;
 import view.utils.Constants;
-
+/**
+ * 
+ * Panel lateral en donde se muestran las opciones de generacion de numeros pseudoaleatorios que siguen la disstribucion uniforme
+ * por medio de los metodos de cuadrados medios, congruencial lineal y multiplicativo dentro de la aplicacion
+ *
+ * @author Cristian David Parada Martinez, Daniel Felipe Suarez Bohorquez
+ *         ,Julian Steven Huertas Henao
+ */
 @SuppressWarnings("deprecation")
 public class JPanelLateralMethodThree extends JScrollPane {
 

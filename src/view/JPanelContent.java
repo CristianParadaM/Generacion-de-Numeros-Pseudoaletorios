@@ -10,7 +10,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import view.utils.Constants;
-
+/**
+ * 
+ * Panel principal en donde iran los contenidos de los metodos a usar dentro de la aplicacion
+ *
+ * @author Cristian David Parada Martinez, Daniel Felipe Suarez Bohorquez
+ *         ,Julian Steven Huertas Henao
+ */
 public class JPanelContent extends JPanel {
 
 

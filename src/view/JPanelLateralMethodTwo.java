@@ -25,7 +25,13 @@ import javax.swing.border.LineBorder;
 import controller.Controller;
 import model.TextPrompt;
 import view.utils.Constants;
-
+/**
+ * 
+ * Panel lateral en donde se muestran las opciones del metodo de generacion congruencial lineal y multiplicativo dentro de la aplicacion
+ *
+ * @author Cristian David Parada Martinez, Daniel Felipe Suarez Bohorquez
+ *         ,Julian Steven Huertas Henao
+ */
 @SuppressWarnings("deprecation")
 public class JPanelLateralMethodTwo extends JPanel {
 

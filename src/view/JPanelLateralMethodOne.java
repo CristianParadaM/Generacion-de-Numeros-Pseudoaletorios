@@ -27,6 +27,13 @@ import model.TextPrompt;
 import view.utils.Constants;
 
 @SuppressWarnings("deprecation")
+/**
+ * 
+ * Panel lateral en donde se muestran las opciones del metodo de cuadrados medios dentro de la aplicacion
+ *
+ * @author Cristian David Parada Martinez, Daniel Felipe Suarez Bohorquez
+ *         ,Julian Steven Huertas Henao
+ */
 public class JPanelLateralMethodOne extends JPanel {
 
 	private JLabel jLabelTitle;

@@ -21,7 +21,13 @@ import org.jfree.ui.RectangleInsets;
 
 import view.utils.Constants;
 import view.utils.JTableMethod;
-
+/**
+ * 
+ * Panel en donde iran los contenidos del metodo congruencial dentro de la aplicacion
+ *
+ * @author Cristian David Parada Martinez, Daniel Felipe Suarez Bohorquez
+ *         ,Julian Steven Huertas Henao
+ */
 public class JPanelContentMethodTwo extends JScrollPane {
 
 	private JLabel jLabelTitle;

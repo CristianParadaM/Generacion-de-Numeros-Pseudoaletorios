@@ -9,7 +9,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import view.utils.Constants;
-
+/**
+ * 
+ * Frame principal de la aplicacion, donde se inicializan los paneles de la vista
+ *
+ * @author Cristian David Parada Martinez, Daniel Felipe Suarez Bohorquez
+ *         ,Julian Steven Huertas Henao
+ */
 public class JFrameMain extends JFrame implements ActionListener {
 
 	public static final int WIDTH_FRAME = Toolkit.getDefaultToolkit().getScreenSize().width;

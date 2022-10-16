@@ -17,6 +17,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import view.utils.Constants;
 
+/**
+ * 
+ * Panel lateral en donde se muestran las opciones del metodo seleccionado dentro de la aplicacion
+ *
+ * @author Cristian David Parada Martinez, Daniel Felipe Suarez Bohorquez
+ *         ,Julian Steven Huertas Henao
+ */
 public class JPanelLateral extends JPanel {
 
 	private JPanelLateralMethodOne jPanelLateralMethodOne;

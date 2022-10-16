@@ -12,7 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import view.utils.Constants;
 import view.utils.JTableMethod;
-
+/**
+ * 
+ * Panel en donde iran los contenidos del metodo de cuadrados medios dentro de la aplicacion
+ *
+ * @author Cristian David Parada Martinez, Daniel Felipe Suarez Bohorquez
+ *         ,Julian Steven Huertas Henao
+ */
 public class JPanelContentMethodOne extends JPanel {
 
 	private JLabel jLabelTitle;

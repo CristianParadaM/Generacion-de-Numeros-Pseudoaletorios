@@ -14,7 +14,13 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import view.utils.Constants;
-
+/**
+ * 
+ * Panel principal en donde iran los paneles de contenido de la aplicacion y los paneles laterales
+ *
+ * @author Cristian David Parada Martinez, Daniel Felipe Suarez Bohorquez
+ *         ,Julian Steven Huertas Henao
+ */
 public class JPanelMain extends JPanel {
 
 	private JPanel jpanelHeader;
